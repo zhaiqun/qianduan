@@ -1,0 +1,86 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+
+            list-style: none;
+        }
+
+
+        .qin{
+
+            margin: 20px  auto;
+            width: 300px;
+        }
+        .qin li {
+
+            float: left;
+
+            width: 60px;
+            height: 80px;
+        }
+    </style>
+    <script src="jquery-1.12.4.js">
+
+
+
+
+    </script>
+    <script src="插件.js">
+
+
+
+
+    </script>
+
+
+
+    <script>
+        $(function () {
+
+            var arry = ["green", "blue", "purple", "yellow", "cyan"]
+
+            $(".qin").qin(arry,25);
+
+            // var $li=  $(".qin  li");
+            // $li.each(function (i, ele) {
+            //     $(ele).bgColor(arry[i]);
+
+            // })
+            // $li.mouseenter(function(){
+            //     $(this).stop().animate({width:200}).siblings().stop().animate({width:25});
+
+            // })
+            // $li.mouseleave(function(){
+            //     $li.stop().animate({width:60});
+
+            // })
+        })
+    </script>
+
+</head>
+
+<body>
+    <ul class="qin">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+       
+    </ul>
+</body>
+
+</html>

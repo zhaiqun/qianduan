@@ -1,0 +1,47 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+
+            margin: 0;
+            padding: 0;
+        }
+
+        .radio {
+            width: 520;
+            height: 280px;
+            position: relative;
+            overflow: hidden;
+
+        }
+
+        .mask {
+            background: rgb(225, 225, 225, 0.4) url(images/navlogo.png) no-repeat center;
+            height: 280px;
+            position: absolute;
+            width: 520px;
+            left: 0;
+            top: 0;
+            display: none;
+        }
+         .radio:hover  .mask{
+            display: block;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="radio">
+
+       <img src="images/banner.jpg" alt="">
+        <div class="mask"></div>
+    </div>
+</body>
+
+</html>

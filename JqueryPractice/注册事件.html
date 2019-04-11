@@ -1,0 +1,66 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="jquery-1.12.4.js">
+
+    </script>
+    <style>
+
+
+
+    </style>
+    <script>
+
+        $(function () {
+
+            // $("p").click(function () {
+
+            //     alert("我的小哥哥");
+            // });
+
+            // $("p").click(function () {
+
+            //     alert("我的小姐姐");
+            // });
+
+
+            $("div").delegate("p","click",function(){
+                alert("我的小姐姐");
+ 
+            })
+
+            $("button").click(function () {
+
+
+                $("<p></p>").appendTo("div").text("哈哈哈");
+            })
+
+        })
+
+    </script>
+
+</head>
+
+<body>
+
+    <button>
+
+        点击
+    </button>
+
+
+
+    <div>
+            <p>
+
+                    哈哈
+                  </p>
+    </div>
+   
+</body>
+
+</html>

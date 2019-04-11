@@ -1,0 +1,153 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+<script>
+export default {
+    
+}
+</script>
+    <script>
+
+
+
+        function Person(name, age) {
+            this.name = name;
+            this.age = age;
+
+        }
+        Person.prototype.SayHi = function () {
+            console.log(this.name + "今年" + this.age);
+
+        };
+
+
+
+        var p = new Person("何雄军", 30);
+        var p1 = new Person("翟群", 18);
+        (p.SayHi.bind(p1))();
+        p.SayHi.apply(p1);
+        p.SayHi.call(p1);
+
+
+
+
+
+        function Randmon() {
+            this.num = Math.random();
+
+        }
+        Randmon.prototype.PrintRandom = function () {
+
+            console.log(this.num);
+
+
+        };
+
+        Randmon.prototype.ShowNum = function () {
+
+           setInterval(this.PrintRandom.bind(this),1000);
+
+        };
+
+        var   r=new  Randmon();
+        r.ShowNum();
+
+        var  a=9;
+        var  d=new Date();
+
+        console.log(typeof  d);
+
+        console.log(Object.prototype.toString.call(d));
+        console.log(typeof  a);
+
+        console.log(Object.prototype.toString.call(a));
+
+
+        if (false) {
+            var bianliang="我是块级别变量，但是我是全局变量，因为js没有会计作用域，只有函数作用域";
+        }
+
+        console.log(bianliang);
+
+
+        var arry=[
+        {size:400,name:"前女友"},
+        {size:500,name:"小李飞刀"},
+        {size:100,name:"鹿鼎记"}
+
+        ];
+
+        var fn=function(attr){
+            return  function(obj1,obj2){
+                if (obj1[attr]>obj2[attr]) {
+                    return 1;
+                }else if(obj1[attr]==obj2[attr]){
+                    return 0;
+
+                }else{
+
+                    return -1;
+                }
+
+            }
+
+        }
+
+        arry.sort(fn("size"));
+
+        console.log(arry);
+
+
+
+        function  f1(){
+
+            var  num=10;
+            return  function(){
+
+                num++;
+                console.log(num);
+            }
+        }
+
+
+       var f=f1();
+       f();f();f();
+
+
+       var  num=1009;
+
+       (function(){
+
+        var  num=100;
+        console.log(num);
+       })();
+
+       console.log(num);
+
+
+       var  obj={
+            0:"何雄军",
+            1:"翟群",
+            2:"翟小败"
+        
+       };
+
+     console.log(obj.length);
+
+    for (var index = 0; index < obj.length; index++) {
+        console.log(obj[index]);
+    }
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

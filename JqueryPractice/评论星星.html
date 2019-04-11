@@ -1,0 +1,64 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="jquery-1.12.4.js">
+        export default {
+
+        }
+    </script>
+
+
+
+    <script>
+
+        $(function () {
+            $("ul  li").on("mouseover", function () {
+
+                $(this).text("★").prevAll().text("★");
+                $(this).nextAll().text("☆");
+
+            });
+            $("ul  li").on("mouseout", function () {
+
+                // $("ul  li").text("☆");
+
+                $(".current").prevAll().text("★");
+                $(".current").nextAll().text("☆");
+            });
+
+            $("ul  li").click(function () {
+
+
+
+                $(this).addClass("current").siblings().removeClass("current");
+            })
+        });
+
+    </script>
+    <style lang="">
+        li {
+
+            list-style: none;
+            float: left;
+
+            color: aqua;
+            font-size: 24px;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>☆</li>
+        <li>☆</li>
+        <li>☆</li>
+        <li>☆</li>
+        <li>☆</li>
+    </ul>
+</body>
+
+</html>

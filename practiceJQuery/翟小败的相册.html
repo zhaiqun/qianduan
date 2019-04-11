@@ -1,0 +1,148 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>翟小败的相册</title>
+
+    <style>
+        * {
+
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+
+            list-style: none;
+        }
+
+
+        .clearfix::after {
+
+            content: "";
+            display: block;
+            height: 0;
+            visibility: hidden;
+            clear: both;
+        }
+
+
+
+        div img {
+            width: 176px;
+            height: auto;
+        }
+
+        .photos {
+
+            width: 196px;
+            border: 1px solid rgb(218, 200, 200);
+            margin: 0 auto;
+            overflow: hidden;
+            position: relative;
+
+        }
+
+        .photos ul {
+            width: 1400px;
+            position: relative;
+
+        }
+
+        .photos ul li {
+            float: left;
+            padding: 10px;
+            text-align: center;
+
+        }
+
+
+        .photos ol {
+            position: absolute;
+            bottom: 20px;
+            left: 85px;
+            line-height: 12px;
+            text-align: center;
+
+        }
+
+        .photos ol li {
+
+            width: 12px;
+            height: 12px;
+            font-size: 10px;
+            background: rgb(255, 255, 255, 0.8);
+            float: left;
+            border-radius: 50%;
+            color: dimgrey;
+            margin-left: 5px;
+            cursor: pointer;
+
+        }
+
+        .photos .current {
+
+            background-color: indianred;
+        }
+
+        .slider{
+
+            display: none;
+        }
+
+        .slider span {
+            position: absolute;
+            top: 50%;
+            color: white;
+            width: 20px;
+            height: 18px;
+            line-height: 18px;
+            text-align: center;
+            transform: translateY(-50%);
+            background-color: rgb(0, 0, 0, 0.6);
+            z-index: 1;
+            cursor: pointer;
+
+        }
+
+        .sliderLeft {
+
+            left: 10px;
+        }
+
+        .sliderRight {
+
+            right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="photosDiv" class="photos ">
+        <div class="slider" >
+            <span class="sliderLeft" id="sliderLeft">&gt;</span>
+            <span class="sliderRight" id="sliderRight">&lt;</span>
+        </div>
+        <ul class="clearfix">
+            <li><a href="#"><img src="images/1.jpg" alt="" srcset=""></a></li>
+            <li><a href="#"><img src="images/2.jpg" alt="" srcset=""></a></li>
+            <li><a href="#"><img src="images/3.jpg" alt="" srcset=""></a></li>
+            <li><a href="#"><img src="images/4.jpg" alt="" srcset=""></a></li>
+            <li><a href="#"><img src="images/5.jpg" alt="" srcset=""></a></li>
+            <li><a href="#"><img src="images/6.jpg" alt="" srcset=""></a></li>
+        </ul>
+        <ol>
+            <li class="current">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+        </ol>
+    </div>
+</body>
+<script src="翟小败的相册.js"></script>
+
+</html>

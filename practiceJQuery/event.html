@@ -1,0 +1,55 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script>
+        window.onload = function () {
+            // my$("btn1").onclick = function () {
+            //     alert("哈哈");
+            // }
+            // my$("btn1").onclick = function () {
+            //     alert("嘿嘿");
+            // }
+            function my$(id) {
+                return document.getElementById(id);
+            }
+
+            function f1() {
+                alert("哈哈");
+
+            }
+            function f2() {
+                alert("呵呵");
+
+            }
+            addEvent(my$("btn1"), "click", f1);
+            addEvent(my$("btn1"), "click", f2);
+        }
+
+        function addEvent(element, type, f) {
+            if (element.addEventListener) {
+                element.addEventListener(type, f);
+            } else if (element.attachEvent) {
+                element.attachEvent("on" + type, f);
+
+            } else {
+
+                element["on" + type] = f;
+            }
+
+        }
+    </script>
+</head>
+
+<body>
+    <button id="btn1">
+
+        点我呀
+    </button>
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        window.onload = function () {
+            my$("btn1").onclick = function () {
+                move(my$("div1"), 400);
+            }
+            my$("btn2").onclick = function () {
+                move(my$("div1"), 800);
+            }
+            function my$(id) {
+                return document.getElementById(id);
+            }
+            var timeId;
+            function move(element, target) {
+                clearInterval(timeId);
+                console.log(timeId);
+                timeId = setInterval(function () {
+                    var current = element.offsetLeft;
+                    var step = 10;
+                    step = target > current ? step : -step;
+
+
+
+                    if (Math.abs(current - target) >= Math.abs(step)) {
+                        current += step;
+                        element.style.left = current + "px";
+
+                    } else {
+                        element.style.left = target + "px";
+                        clearInterval(timeId);
+                    }
+
+
+                }, 30)
+
+
+
+            }
+
+        };
+    </script>
+    <style>
+        div {
+            width: 200px;
+            position: absolute;
+            height: 100px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="button" value="移动400px" id="btn1" />
+    <input type="button" value="移动到800px" id="btn2">
+    <div id="div1">
+
+
+    </div>
+</body>
+
+</html>

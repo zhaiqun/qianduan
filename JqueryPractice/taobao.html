@@ -1,0 +1,167 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    * {
+
+        margin: 0;
+        padding: 0;
+    }
+
+    li {
+
+        list-style: none;
+        height: 27px;
+        line-height: 27px;
+        text-align: center;
+        font-size: 10px;
+        border-bottom: 1px solid red;
+        cursor: pointer;
+    }
+
+    .clearfix::after {
+
+        content: "";
+        display: block;
+        height: 0;
+        visibility: hidden;
+        clear: both;
+    }
+
+    .content {
+
+        width: 300px;
+        height: 250px;
+
+
+        margin: 0 auto;
+        border: 1px solid red;
+    }
+
+    .content ul:nth-child(1) {
+
+        float: left;
+        width: 48px;
+    }
+
+    .content ul:nth-child(2) li {
+        float: left;
+        width: 202px;
+        /* display: none; */
+        height: 250px;
+
+    }
+
+    .content ul .last {
+
+        border-bottom: 0;
+    }
+
+    .content ul:nth-child(2) {
+        float: left;
+        width: 202px;
+        overflow: hidden;
+        border-left: 1px solid red;
+        border-right: 1px solid red;
+        height: 250px;
+
+        overflow: hidden;
+
+    }
+
+    .content ul:nth-child(3) {
+        float: left;
+        width: 48px;
+    }
+</style>
+<script src="jquery-1.12.4.js">
+
+</script>
+
+
+
+
+<script>
+    $(function () {
+        var $content1 = $(".content  ul").eq(0);
+
+        $content1.children().click(function () {
+           
+            var ind=$(this).index();
+          
+            $("#imgDiv li").eq(ind).css("display","block").siblings().css("display","none");
+           
+
+        });
+
+    
+
+        $(".content  ul").eq(2).children().click(function () {
+           
+           var ind=$(this).index();
+           $("#imgDiv").children(ind+10).css("display","block").siblings().css("display","none");
+         $("#imgDiv li").eq(ind+9).css("display","block").siblings().css("display","none");
+          
+
+       });
+
+   
+    });
+</script>
+
+<body>
+    <div class="content clearfix">
+        <ul>
+            <li>女靴</li>
+            <li>雪地靴</li>
+            <li>冬裙</li>
+            <li>毛呢大衣</li>
+            <li>毛衣</li>
+            <li>棉服</li>
+
+            <li>女裤</li>
+            <li>羽绒服</li>
+            <li class="last">牛仔裤</li>
+        </ul>
+        <ul   id="imgDiv">
+            <li><img src="images/女靴.jpg" alt=""></li>
+            <li><img src="images/雪地靴.jpg" alt=""></li>
+            <li><img src="images/冬裙.jpg" alt=""></li>
+            <li><img src="images/呢大衣.jpg" alt=""></li>
+            <li><img src="images/毛衣.jpg" alt=""></li>
+            <li><img src="images/棉服.jpg" alt=""></li>
+            <li><img src="images/女裤.jpg" alt=""></li>
+            <li><img src="images/羽绒服.jpg" alt=""></li>
+            <li><img src="images/牛仔裤.jpg" alt=""></li>
+            <li><img src="images/女包.jpg" alt=""></li>
+            <li><img src="images/男靴.jpg" alt=""></li>
+            <li><img src="images/登山鞋.jpg" alt=""></li>
+            <li><img src="images/皮带.jpg" alt=""></li>
+            <li><img src="images/围巾.jpg" alt=""></li>
+            <li><img src="images/皮衣.jpg" alt=""></li>
+            <li><img src="images/男毛衣.jpg" alt=""></li>
+            <li><img src="images/男棉服.jpg" alt=""></li>
+            <li><img src="images/男包.jpg" alt=""></li>
+        </ul>
+
+        <ul>
+            <li>女包</li>
+            <li>男靴</li>
+            <li>登山鞋</li>
+            <li>皮带</li>
+            <li>围巾</li>
+            <li>皮衣</li>
+            <li>男毛衣</li>
+            <li>羽绒服</li>
+            <li class="last">男包</li>
+        </ul>
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+*{
+
+    margin: 0;
+    padding: 0;
+}
+
+.bg{
+
+    background: url("images/sky.png") ;
+    height: 600px;
+    width: 800px;
+    position: relative; 
+}
+
+.bird{
+    background: url("images/birds.png") no-repeat -8px -11px;
+    width: 33px;
+    height: 24px;
+    position: absolute;
+    left: 80px;
+    top: 200px;
+}
+.popTop{
+    background: url("images/pipe2.png")  no-repeat center bottom;
+    position: absolute;
+    width: 52px;
+}
+.popBottome{
+    background: url("images/pipe1.png")  no-repeat center  top;
+    position: absolute;
+    width: 52px;
+}

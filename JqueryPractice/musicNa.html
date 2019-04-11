@@ -1,0 +1,173 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="jquery-1.12.4.js">
+
+    </script>
+    <style lang="">
+        * {
+
+            margin: 0;
+            padding: 0;
+
+        }
+
+        li {
+
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .clearfix::after {
+
+            height: 0;
+            visibility: hidden;
+            clear: both;
+            content: "";
+            display: block;
+        }
+
+        ul {
+
+            /* border: 1px  solid  black; */
+            width: 245px;
+            margin: 20px auto;
+            overflow: hidden;
+        }
+
+        ul li {
+
+            float: left;
+            width: 25px;
+            border-right: 1px solid #979797;
+
+            background-color: #EEEEEE;
+            height: 100px;
+            position: relative;
+            box-shadow: 0px 0px 5px rgba(255, 255, 255, 0.8);
+
+
+        }
+
+        li::after {
+            content: "";
+            display: block;
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 62px;
+            width: 3px;
+            background-color: black;
+
+        }
+
+        li::before {
+            content: "";
+            display: block;
+            position: absolute;
+            right: 0;
+            left: -1px;
+            height: 62px;
+            width: 3px;
+            background-color: black;
+
+        }
+
+        li:first-child::before {
+
+            display: none;
+        }
+
+
+        li:last-child::after {
+
+            display: none;
+        }
+
+        ul li:last-child {
+
+
+            border-right: none;
+
+        }
+
+        span {
+            height: 100px;
+            position: absolute;
+            top: 100px;
+            width: 25px;
+            background: rgba(0, 0, 0, 0.8)
+        }
+    </style>
+
+    <script>
+        $(function () {
+            $(".clearfix  li").mouseenter(function () {
+                var  ind=$(this).index();
+                var  heightli=$(this).height();
+                $(".clearfix  span").eq(ind).stop().animate({top:0}).parent().siblings().children("span").stop().animate({top:heightli});
+                // $(".clearfix  span").eq(ind).css("top",0).parent().siblings().children("span").css("top",heightli+"px");
+                
+                $("audio").get(ind).load();
+                $("audio").get(ind).play();
+            }).mouseleave(function(){
+
+
+                $(".clearfix  span").stop().animate({top:$(this).height()});
+            });
+
+            $(document).on("keydown",function(e){
+                var  code=e.keyCode;
+                if (code>=49   &&  code <=57) {
+                    $(".clearfix  li").eq(code-49).trigger("mouseenter");
+                }
+
+            });
+
+            $(document).on("keyup",function(){
+                $(".clearfix  span").stop().animate({top:$(this).height()});
+            });
+
+
+        });
+
+    </script>
+</head>
+
+<body>
+
+    <div>
+        <ul class="clearfix">
+            <li><a href=""></a><span></span></li>
+            <li><a href=""></a><span></span></li>
+            <li><a href=""></a><span></span></li>
+            <li><a href=""></a><span></span></li>
+            <li><a href=""></a><span></span></li>
+            <li><a href=""></a><span></span></li>
+            <li><a href=""></a><span></span></li>
+            <li><a href=""></a><span></span></li>
+            <li><a href=""></a><span></span></li>
+        </ul>
+
+        <div>
+            <audio src="mp3/1.ogg"></audio>
+            <audio src="mp3/2.ogg"></audio>
+            <audio src="mp3/3.ogg"></audio>
+            <audio src="mp3/4.ogg"></audio>
+            <audio src="mp3/5.ogg"></audio>
+            <audio src="mp3/6.ogg"></audio>
+            <audio src="mp3/7.ogg"></audio>
+            <audio src="mp3/8.ogg"></audio>
+            <audio src="mp3/9.ogg"></audio>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,143 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+ 
+    <title>Document</title>
+    <style>
+        *{
+
+            margin: 0px;
+            padding: 0px;
+        }
+        li{
+            list-style: none;
+        }
+        .banner {
+            width: 520px;
+            height: 280px;
+            margin: 20PX auto 0;
+            position: relative;
+        }
+
+        .banner-left,
+        .banner-right {
+            position: absolute;
+            top: 50%;
+            /* visibility: hidden; */
+            margin-top: -40px;
+            width: 40px;
+            height: 80px;
+            background:url(images/sprite.png) no-repeat;
+        }
+
+
+        .banner-left {
+            left: 0;
+            /* background: url(images/banner-left.png)  no-repeat; */
+            background-position: -73px -0;
+        }
+
+        .banner-right {
+            right: 0;
+            /* background: url(images/banner-right.png) no-repeat; */
+
+            background-position: 0 0;
+        }
+
+        /* .banner-left:hover {
+            visibility: visible;
+        }
+
+        .banner-right:hover {
+            visibility: visible;
+
+        } */
+        /* .banner-slip{
+            width: 80px;
+            height: 30px;
+            position: absolute;
+            bottom: 0;
+            margin: 0 auto;
+            left: 50%;
+            margin-left: -40px; 
+        }*/
+        .banner ul{
+            width: 70px;
+            height: 13px;
+            background-color:rgba(225,225,225,.3);
+            position: absolute;
+            bottom: 18px;
+            border-radius: 5px;
+            left: 50%;
+            margin-left: -35px; 
+
+        }
+
+        .banner ul li{
+            /* width: 10px; */
+            float: left;
+            color:rebeccapurple;
+            width:8px;
+            height: 8px;
+            border-radius: 5PX;
+       
+        }
+        .test{
+
+            width: 600px;
+            background-color:gray;
+            height: 100px;;
+            margin: auto;
+        }
+
+        /* .test ul{
+            width: 20px;
+            height: 10px;
+        } */
+        .test li{
+            width: 20px;
+            color: red;
+            float: left;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="top">123</div>
+    <div class="banner">
+        <a href=""><img src="images/banner.jpg" alt=""></a>
+
+        <!-- <img class="banner-left" src="images/banner-left.png" alt="">
+
+
+        <img class="banner-right" src="images/banner-right.png" alt=""> -->
+
+        <a href="" class="banner-left"></a>
+        <a href="" class="banner-right"></a>
+
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+
+
+
+    </div>
+<br>
+    <div class="test">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>使用盒子模型改造导航条</title>
+	<style type="text/css">
+
+	body{
+		background-color: #ccc;
+	}
+		div {
+			border-top: 1px solid red;
+			border-bottom: 1px solid red;
+			height: 50px;
+			
+		}
+		div a{
+		
+			font-size:22px;			
+			color: #fff;
+			text-decoration: none;
+			/*width: 200px;*/
+			height: 50px;
+			line-height: 50px;
+			padding: 0 30px;
+			/*将行内元素转换成行内块元素*/
+			display: inline-block;
+		}
+		/* 鼠标经过 给我们的链接添加背景图片*/
+	a:hover{
+		/*background-image: url(images/h.png);
+		background-repeat: no-repeat;*/
+		background: blue;
+	}
+
+	</style>
+</head>
+<body>
+	<div>
+    	<a href="#">免费课程免费课程课程免费课程课程免费课程课程1111</a>
+    	<a href="#">优质课程</a>
+    	<a href="#">精品课程</a>
+    	<a href="#">就业课程</a>
+	</div>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+    div:first-child{
+
+        width: 100px;
+        height: 100px;
+
+        background-color: pink;
+        transition: all 0.5s;
+        /* transition: width 3s  ease 0s; */
+    }
+
+
+    div:first-child:hover{
+
+        height: 600px;
+        width: 300px;
+
+    }
+
+
+    div:nth-child(2){
+
+        height: 220px;
+        width: 210px;
+        border: 1px solid rebeccapurple;
+
+        overflow: hidden;
+    }
+
+
+    div:nth-child(2)  img{
+
+        transition: all 0.5s;
+    }
+
+    div:nth-child(2):hover img{
+
+             margin-left: -10px;
+    }
+
+
+    ul li{
+
+        width: 20px;
+        height: 20px;
+        background-color: antiquewhite;
+        margin-bottom: 5px;
+        position: relative;
+        list-style: none;
+    }
+
+    ul li  .lidiv{
+        width: 0px;
+        height: 0px;
+        background-color:pink;
+        position: absolute;
+        transition: all 0.5s;
+        left: 0;
+        top:0;
+
+        z-index: -1;
+    }
+
+    ul li:hover  .lidiv{
+
+        width: 200px;
+        height: 20px;
+
+    
+
+    }
+    </style>
+</head>
+<body>
+
+        
+    <div>
+
+    </div>
+
+
+    <div>
+
+            <img src="images/xiaomi.jpg" alt="">
+        </div>
+
+        <ul>
+            <li><div class="lidiv"></div></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+</body>
+</html>

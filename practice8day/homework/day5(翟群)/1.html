@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>动图效果</title>
+	<style type="text/css">
+		#btn{
+			
+		}
+		#box{
+			position: relative;
+			background-color: red;
+			width: 100px;
+			height: 100px;
+		}
+	</style>
+</head>
+<body>
+	<input type="button" value="开始" id="btn">
+	<div id="box"></div>
+	<script type="text/javascript">
+		var btn=document.getElementById('btn');
+		var box=document.getElementById('box');
+		// var target=600;
+		// var setp=6;
+		btn.onclick=function() {
+			// for (var i = 0; i < 100; i++) {
+			// 	box.style.left=box.offsetLeft+s+'px'
+			// 	}
+
+			var  array=[6,7,8,];
+			for (var index = 0; index < array.length; index++) {
+				alert(index);
+				
+			}
+			for (var index = 0; index < array.length; index++) {
+				alert(index);
+			}
+			var target=600;
+			var stpe=6;
+			var timeId=setInterval(function() {
+				// var target=600;
+				// var setp=6;
+				if (box.offsetLeft>=600) {
+					clearInterval(timeId);
+				}
+				box.style.left=box.offsetLeft+step+'px';
+			},30)
+		}
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,97 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+<script  src="jquery-1.12.4.js">
+
+</script>
+
+    <script>
+
+        $(function(){
+
+
+            var $ul= $(".shoufengqing>li");
+            $ul.mouseenter(function(){
+                $(this).children("div").show().parent().siblings().children("div").hide();
+
+
+            });
+            $ul.mouseleave(function(){
+
+                $(this).children("div").hide();
+
+            })
+
+        });
+
+
+        console.log($===jQuery);
+
+    </script>
+
+    <style  type="text/css">
+
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    li{
+
+        list-style: none;
+        border: 1px solid  red;
+        text-align: center;
+    }
+
+    ul{
+
+        width: 200px;
+        margin: 0  auto;
+        border: 1px solid  red;
+    }
+
+
+    ul  div{
+        width: 100%;
+        height: 200px;
+        display: none;
+
+    }
+
+
+    ul  li  span{
+        border: 1px solid  red;
+
+        display:inline-block;
+        width: 100%;
+
+    }
+    </style>
+</head>
+<body>
+     <ul  class="shoufengqing">
+         <li>
+             <span>标题一</span>
+             <div></div>
+         </li>
+         <li>
+             <span>标题二</span>
+             <div></div>
+         </li>
+         <li>
+             <span>标题三</span>
+             <div></div>
+         </li>
+         <li>
+             <span>标题四</span>
+             <div></div>
+         </li>
+         <li>
+             <span>标题五</span>
+             <div></div>
+         </li>
+     </ul>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .father {
+
+            width: 400px;
+            /* overflow: hidden; */
+            background-color: blue;
+        }
+
+        .one {
+
+            width: 100px;
+            height: 500px;
+            background-color: red;
+            float: left;
+        }
+
+        .three {
+
+            width: 100px;
+            height: 300px;
+            background-color: rebeccapurple;
+            float: left;
+        }
+        .clear{
+            clear: both;
+        }
+
+        .clearfix::after{
+
+            display: block;
+            content: "";
+            height: 0;
+            clear: both;
+            visibility: hidden;
+        }
+        .clearfix{
+
+         *zoom:1;    /*  ie67 */
+        }
+        .uncle{
+
+            width: 300px;
+            background-color:yellow;
+            height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="father clearfix">
+        <div class="one"></div>
+        <div class="three"></div>
+        <!-- <div class="clear"></div> -->
+    </div>
+    <div class="uncle"></div>
+</body>
+
+</html>
