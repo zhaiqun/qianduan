@@ -1,0 +1,182 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        canvas {
+
+            border: 1px solid red;
+        }
+
+        .canvas1{
+
+            border: 1px solid black;
+        }
+    </style>
+
+    <script>
+        window.onload = function () {
+
+            var canvasEle = document.querySelector("canvas");
+            var ctx = canvasEle.getContext("2d");
+            ctx.moveTo(100, 100.5);
+            ctx.lineTo(200, 100.5);
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.moveTo(300, 100.5);
+            ctx.lineTo(400, 100.5);
+            ctx.strokeStyle = "red";
+            ctx.stroke();
+
+
+            ctx.beginPath();
+            ctx.moveTo(300, 200.5);
+            ctx.lineTo(400, 200.5);
+            ctx.strokeStyle = "yellow";
+            ctx.stroke();
+
+
+            ctx.beginPath();
+            ctx.moveTo(300, 300.5);
+            ctx.lineTo(400, 300.5);
+            ctx.strokeStyle = "#ccc";
+            ctx.stroke();
+
+
+            ctx.beginPath();
+            ctx.moveTo(150, 250);
+
+            ctx.lineTo(250, 250);
+            ctx.lineTo(250, 350);
+            // ctx.lineTo(150,250);
+            ctx.closePath();
+            ctx.strokeStyle = "red";
+            ctx.fill();
+            ctx.stroke();
+
+
+            ctx.beginPath();
+
+            ctx.moveTo(400, 100);
+            ctx.lineTo(500, 100);
+            ctx.lineTo(500, 200);
+
+            ctx.lineTo(400, 200);
+            ctx.closePath();
+            ctx.strokeStyle = "pink";
+            ctx.stroke();
+
+
+            ctx.moveTo(420, 120);
+            ctx.lineTo(480, 120);
+            ctx.lineTo(480, 180);
+            ctx.lineTo(420, 180);
+            ctx.closePath();
+
+            ctx.stroke();
+
+            ctx.fill();
+
+
+            ctx.beginPath();
+
+            ctx.moveTo(600, 200);
+
+            ctx.lineTo(700, 200);
+            ctx.lineTo(700, 300);
+
+            ctx.lineTo(600, 300);
+            ctx.closePath();
+
+            ctx.moveTo(620, 220);
+
+            ctx.lineTo(620, 280);
+            ctx.lineTo(680, 280);
+
+            ctx.lineTo(680, 220);
+
+            ctx.closePath();
+            ctx.stroke();
+
+            ctx.fill();
+
+
+            ctx.beginPath();
+
+            ctx.moveTo(800, 200);
+            ctx.lineTo(900, 200);
+            ctx.lineTo(900, 220);
+            ctx.lineTo(800, 220);
+
+            ctx.closePath();
+
+            ctx.fill();
+
+            ctx.beginPath();
+
+            ctx.moveTo(800, 300);
+            ctx.lineTo(850, 280);
+            ctx.lineTo(900, 300);
+            ctx.lineCap = "square";
+            ctx.lineJoin= "bevel";
+            ctx.lineWidth = 10;
+            ctx.strokeStyle = "blue";
+            ctx.stroke();
+
+            ctx.beginPath();
+
+            ctx.moveTo(800, 350);
+
+            ctx.lineTo(850, 330);
+            ctx.lineTo(900, 350);
+            ctx.lineJoin= "round";
+            ctx.lineCap = "round";
+            ctx.lineWidth = 10;
+            ctx.strokeStyle = "red";
+            ctx.stroke();
+
+
+            ctx.beginPath();
+
+            ctx.moveTo(800,500);
+            ctx.lineTo(900,500);
+            ctx.strokeStyle="red";
+            ctx.lineWidth=5;
+            ctx.setLineDash([5,10]);
+            ctx.stroke();
+
+
+
+            var  canvas1=document.querySelector(".canvas1");
+
+            var ctx=canvas1.getContext("2d");
+            ctx.lineWidth=30;
+            for (let index = 0; index < 255; index++) {
+
+                ctx.beginPath();
+                ctx.moveTo(100+index-1,200);
+                ctx.lineTo(100+index,200);
+                ctx.strokeStyle='rgb('+index+','+index+','+index+')';
+
+                ctx.stroke();
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <canvas width="1200" height="600">
+
+    </canvas>
+
+    <canvas  class="canvas1" width="1200" height="600">
+
+        </canvas>
+</body>
+
+</html>

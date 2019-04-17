@@ -1,0 +1,42 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+
+    <!--[if lt  IE  8]>
+
+    您的浏览器太低了
+
+    <![endif] -->
+
+</head>
+<script src="js/jquery-1.12.4.js">
+
+</script>
+
+<script>
+    $(function(){
+        console.log($("header").data());
+
+        console.log($("header").data("user"));
+        console.log($("header").data()["user"]);
+
+        console.log($("header").attr("data-user"));
+    })
+</script>
+
+<body>
+    <header  data-user="zq"  data-user-age="26"  action="del">1</header>
+
+    <section>2</section>
+
+
+    <footer>3</footer>
+
+</body>
+
+</html>

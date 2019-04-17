@@ -1,0 +1,170 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<style>
+    * {
+
+        margin: 0;
+        padding: 0;
+    }
+
+    div {
+
+        width: 506px;
+        /* overflow: hidden; */
+    }
+
+    li {
+
+
+        list-style: none;
+
+
+    }
+
+
+    ul {
+
+        border: 1px solid #cccccc;
+    }
+
+
+    .order {
+
+        height: 50px;
+    }
+
+
+    .order li {
+
+        width: 166px;
+        float: left;
+
+
+        text-align: center;
+        line-height: 50px;
+
+        border: 1px solid #cccccc;
+    }
+
+
+    .content {
+
+
+        height: 200px;
+    }
+
+    .content li {
+
+
+        width: 100%;
+        height: 100%;
+    }
+
+
+    .show {
+
+        display: block;
+    }
+
+    .hide {
+
+        display: none;
+    }
+
+
+
+    .red {
+
+
+        background-color: red;
+    }
+
+    .grey {
+
+        background-color: grey;
+    }
+</style>
+
+
+<script>
+
+    window.onload = function () {
+        var list = document.querySelectorAll(".order  li");
+
+        for (var index = 0; index < list.length; index++) {
+            var element = list[index];
+            //    element.className="grey";
+
+            element.classList.add("grey");
+
+        }
+        document.querySelector(".order").onclick = function (t) {
+
+
+            var oldLi = document.querySelector(".order .red");
+
+            if (oldLi) {
+                var oldContentid = oldLi.dataset.contentid;
+                oldLi.classList.remove("red");
+                oldLi.classList.add("grey");
+                document.querySelector("#" + oldContentid).classList.remove("show");
+                document.querySelector("#" + oldContentid).classList.add("hide");
+            }
+
+
+
+
+            var currentLi = t.target;
+
+            currentLi.classList.remove("grey");
+
+            currentLi.classList.add("red");
+
+            var contentId = currentLi.dataset.contentid;
+            var contentCurrent = document.querySelector("#" + contentId);
+
+            if (contentCurrent.classList.contains("show")) {
+                return false;
+            }
+
+            contentCurrent.classList.add("show");
+
+            contentCurrent.classList.remove("hide");
+        }
+
+    }
+
+
+</script>
+
+<body>
+
+
+
+
+    <div>
+
+        <ul class="order">
+            <li data-contentid="contentid1">菜单一</li>
+            <li data-contentid="contentid2">菜单二</li>
+            <li data-contentid="contentid3">菜单三</li>
+        </ul>
+
+
+        <ul class="content">
+            <li id="contentid1">1</li>
+            <li id="contentid2" class="hide">2</li>
+            <li id="contentid3" class="hide">3</li>
+        </ul>
+    </div>
+
+</body>
+
+</html>

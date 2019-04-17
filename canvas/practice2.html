@@ -1,0 +1,73 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+    
+    canvas{
+
+        border: 1px  solid   black;
+    }
+    </style>
+
+    <script>
+
+        window.onload=function(){
+
+            var  canvas=document.querySelector("canvas");
+            var  ctx=canvas.getContext("2d");
+            var grid=20;
+            var  column= Math.floor(canvas.width/grid) ;
+
+            var  row=Math.floor(canvas.height/grid);
+
+            for (let index = 0; index < column; index++) {
+                ctx.moveTo(index*grid-0.5,0);
+                ctx.lineTo(index*grid-0.5,canvas.height);
+                ctx.strokeStyle="#eee";
+                ctx.stroke();
+                
+            }
+
+            for (let index = 0; index < row; index++) {
+                ctx.moveTo(0,grid*index-0.5);
+                ctx.lineTo(canvas.width,grid*index-0.5);
+                ctx.strokeStyle="#eee";
+                ctx.stroke();
+                
+            }
+
+            var  space=20;
+            var arrowSize=10;
+            var  x0=space;
+            var  y0=canvas.height-space;
+            ctx.beginPath();
+            ctx.moveTo(x0,y0);
+            ctx.lineTo(canvas.width-space,y0);
+            ctx.lineTo(canvas.width-space-arrowSize,y0+arrowSize/2);
+            ctx.lineTo(canvas.width-space-arrowSize,y0-arrowSize/2);
+            ctx.lineTo(canvas.width-space,y0);
+
+
+            ctx.moveTo(x0,y0);
+            ctx.lineTo(x0,space);
+            ctx.lineTo(x0+arrowSize/2,space+arrowSize);
+            ctx.lineTo(x0-arrowSize/2,space+arrowSize);
+            ctx.lineTo(x0,space);
+
+            ctx.strokeStyle="black";
+            ctx.fill();
+            ctx.stroke();
+        }
+ 
+    </script>
+</head>
+<body>
+    <canvas  width="600"  height="400">
+
+    </canvas>
+</body>
+</html>

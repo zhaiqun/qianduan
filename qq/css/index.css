@@ -1,0 +1,279 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.w {
+    width: 1080px;
+    margin: auto;
+}
+
+.clearfix::after {
+    content: "";
+    height: 0;
+    clear: both;
+    visibility: hidden;
+    display: block;
+}
+
+.qq_nav {
+    height: 150px;
+    background: url("../images/nav_bg.png") repeat-x;
+}
+
+.qq_nav .wrapper {
+    height: 75px;
+}
+
+.qq_nav .log {
+    /* margin:25px 0px 0px 20px; */
+    float: left;
+    margin-top: 15px;
+}
+
+.qq_nav .nav {
+    float: left;
+}
+
+.qq_nav .nav li {
+    float: left;
+    margin-left: 20px;
+}
+
+.qq_nav .nav li a {
+    width: 76px;
+    height: 75px;
+    text-align: center;
+    line-height: 75px;
+    margin-left: 20px;
+    display: block;
+    font-size: 20px;
+    color: #333333;
+}
+
+.qq_nav .nav li a:hover {
+    background: blue;
+}
+
+.qq_nav .other {
+    width: 250px;
+    float: right;
+    height: 75px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.qq_nav .other ul {
+    width: 250px;
+    float: right;
+}
+
+.qq_nav .register {
+    margin-top: 20px;
+    text-align: center;
+    float: right;
+    line-height: 36px;
+    width: 96px;
+    height: 36px;
+    border-radius: 16px;
+    background-color: rgb(0, 128, 255);
+    display: block;
+}
+
+.qq_nav .other li {
+    float: left;
+    margin-left: 37px;
+    line-height: 50px;
+}
+
+.qq_banner {
+    padding-top: 30px;
+    text-align: center;
+    height: 850px;
+    background: url("../images/banner-bg.jpg") top center no-repeat;
+}
+
+.qq_banner img {
+    display: block;
+    margin: 20px auto;
+}
+
+.qq_banner a {
+    margin: 0 auto;
+    width: 240px;
+    height: 53px;
+    display: block;
+    background: url("../images/banner-download.png")
+}
+
+.qq_banner img:last-child {
+    width: 100%;
+}
+
+.qq_sound {}
+
+.qq_sound h1 {
+    height: 300px;
+    background: url("../images/sound-text.png");
+    /* text-indent: -1000px */
+    font-size: 0;
+}
+
+.qq_sound .bg {
+    height: 500px;
+    background: url("../images/sound-bg.jpg") center/cover;
+    background-attachment: fixed;
+}
+
+.qq_sound .phone {
+    position: absolute;
+    left: 0;
+    top: -300px;
+    z-index: 2;
+}
+
+.qq_sound .content {
+    position: relative;
+    height: 500px;
+}
+
+.qq_sound .contentTxt {
+    position: absolute;
+    right: 50px;
+    text-align: right;
+}
+
+.qq_sound .content h2 {
+    margin: 80px 0 50px 0;
+}
+
+.qq_file {}
+
+.qq_file .file_bg {
+    height: 500px;
+    background: url("../images/file-bg.jpg") center/cover;
+    background-attachment: fixed;
+}
+
+.qq_file .content {
+    padding-top: 100px;
+    height: 400px;
+}
+
+.qq_file .contentTxt {
+    float: left;
+}
+
+.qq_file .mac {
+    float: right;
+}
+
+.qq_interest .content {
+    height: 500px;
+    overflow: hidden;
+}
+
+.qq_interest .bg {
+    background: url("../images/interest-bg.jpg") center/cover;
+    height: 500px;
+    background-attachment: fixed;
+}
+
+.qq_interest img {
+    float: left;
+    margin-left: 50px;
+   
+}
+
+.qq_interest .contentTxt {
+    padding-top: 100px;
+    float: right;
+    text-align: right;
+    margin-right: 50px;
+}
+
+.qq_interest p {
+    margin-top: 50px;
+}
+
+.qq_footer {
+    padding-top: 80px;
+    background: #2A2A2A;
+    height: 250px;
+}
+
+.qq_footer ul {
+    width: 500px;
+    height: 150px;
+    margin: 0 auto;
+}
+
+.qq_footer ul li {
+    width: 125px;
+    float: left;
+}
+
+.qq_footer ul a {
+    display: block;
+    width: 60px;
+    height: 80px;
+    font-size: 10px;
+    text-align: center;
+    color: #7F7F7F;
+}
+
+.qq_footer li a::before {
+    content: "";
+    display: block;
+    width: 64px;
+    height: 48px;
+    margin: 0 auto;
+    background: url("../images/footer.png") -12px -2px no-repeat;
+}
+
+.qq_footer  li:nth-child(2) a::before {
+
+    background: url("../images/footer.png") -118px -2px no-repeat;
+}
+
+
+.qq_footer  li:nth-child(3) a::before {
+
+    background: url("../images/footer.png") -230px -2px no-repeat;
+}
+
+.qq_footer  li:nth-child(4) a::before {
+
+    background: url("../images/footer.png") -335px -2px no-repeat;
+}
+
+
+.qq_footer li:nth-child(1):hover a::before {
+    background-position: -12px -95px;
+}
+
+.qq_footer li:nth-child(2):hover a::before {
+    background-position: -118px -95px;
+}
+
+.qq_footer li:nth-child(3):hover a::before {
+    background-position: -230px -95px;
+}
+
+.qq_footer li:nth-child(4):hover  a::before{
+    background-position: -335px -95px;
+}
+
+.qq_footer p{
+
+    text-align: center;
+    margin: 0 auto;
+}

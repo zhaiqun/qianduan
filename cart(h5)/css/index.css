@@ -4,18 +4,15 @@
     top:0;
 } */
 
-.clearfix::after{
-
+.clearfix::after {
     content: "";
     display: block;
     height: 0;
     clear: both;
-
     visibility: hidden;
 }
 
-.shoppingCenterEnter{
-
+.shoppingCenterEnter {
     position: fixed;
     width: 100px;
     height: 100px;
@@ -23,24 +20,21 @@
     text-decoration: none;
     right: 30px;
     top: 20px;
-    background-color: rgba(255, 255, 255,  0.3);
+    background-color: rgba(255, 255, 255, 0.3);
     z-index: 200;
-
     text-align: center;
-    
 }
 
-.shoppingCenterEnter  div{
+.shoppingCenterEnter div {
     width: 100px;
     height: 50px;
     margin: 25px auto;
     line-height: 25px;
-    color:F48F29;
+    color: F48F29;
 }
 
-.moreNav{
-
-    width:174px;
+.moreNav {
+    width: 174px;
     height: 61px;
     background-color: FFFFFF;
     position: fixed;
@@ -49,9 +43,8 @@
     z-index: 200;
     color: D6503E;
     text-decoration: none;
-    animation: fly01 0.8s linear infinite  alternate;
+    animation: fly01 0.8s linear infinite alternate;
 }
-
 
 /* .moreNav span:nth-child(1){
 
@@ -68,628 +61,474 @@
 
 } */
 
-.content{
-
+.content {
     position: absolute;
     width: 900px;
     height: 600px;
-     bottom: 0px;
-     left: 50%;
-     /* transform: translateX(-50%); */
-     margin-left: -450px;
-     /* background: rgba(0, 0, 0,0.1); */
-}
-.screen01{
-
-    background: url("../images/01-bg.png")  no-repeat  center  bottom ;
+    bottom: 0px;
+    left: 50%;
+    /* transform: translateX(-50%); */
+    margin-left: -450px;
+    /* background: rgba(0, 0, 0,0.1); */
 }
 
-.screen01 .sofaImg{
+.screen01 {
+    background: url("../images/01-bg.png") no-repeat center bottom;
+}
 
-    top:200px;
+.screen01 .sofaImg {
+    top: 200px;
     left: 300px;
     position: absolute;
-    animation: fly01 2s linear infinite  alternate;
+    animation: fly01 2s linear infinite alternate;
 }
 
-.screen01 .milk{
-
-    top:230px;
+.screen01 .milk {
+    top: 230px;
     left: 80px;
     position: absolute;
 }
 
-
-.screen01 .fly{
-
-    top:100px;
-    right : 10px;
+.screen01 .fly {
+    top: 100px;
+    right: 10px;
     position: absolute;
-    animation: fly01 1s linear infinite  alternate;
+    animation: fly01 1s linear infinite alternate;
 }
 
-@keyframes  fly01{
-    from{
+@keyframes fly01 {
+    from {
         transform: translateY(-20px);
-
     }
-    to{
-
+    to {
         transform: translateY(20px);
     }
-
     /* 100%{
 
         transform: translateY(-20px);
     } */
 }
 
-
-
 /*
 第二屏
 */
-.screen02{
 
-    background: url(../images/02-bg.png)  no-repeat center  bottom;
-    
+.screen02 {
+    background: url(../images/02-bg.png) no-repeat center bottom;
     text-align: center;
 }
 
-.screen02 .goods{
+.screen02 .goods {
     position: absolute;
     height: 0;
     width: 441px;
     height: auto;
     bottom: 200px;
     left: 50%;
-
     /* margin-left: -220px; */
-
-  
-    transform:  scale(0);
-
+    transform: scale(0);
     /* transition: all  1s linear  3s; */
-    transform-origin: right  bottom;
- 
- 
-
+    transform-origin: right bottom;
 }
 
-.screen02  .sofa{
+.screen02 .sofa {
     position: absolute;
     left: 290px;
     top: 148px;
     transform: scale(0.5);
     opacity: 0;
-
     z-index: 9000;
 }
 
-.screen02.now  .sofa{
-    transition: all 0.3s linear  4.5s; 
+.screen02.now .sofa {
+    transition: all 0.3s linear 4.5s;
     opacity: 1;
 }
 
-.screen02.now  .text01{
-
+.screen02.now .text01 {
     position: absolute;
     opacity: 0;
 }
 
-.screen02  .text02{
-
+.screen02 .text02 {
     position: absolute;
     opacity: 0;
-
 }
 
-.screen02.now  .text02{
-
+.screen02.now .text02 {
     position: static;
     opacity: 1;
-    transition: all 1s  linear;
-
+    transition: all 1s linear;
 }
-.screen02.now  .goods{
+
+.screen02.now .goods {
     /* transform: scale(1); */
-    animation: sofasShow02  1s  linear  2s  forwards;
-
-
-    
+    animation: sofasShow02 1s linear 2s forwards;
 }
 
-
-.screen02  .searchInput{
-
+.screen02 .searchInput {
     position: absolute;
-   
     top: 119px;
     right: 167px;
     z-index: 2000;
     transform: scale(0);
-    transform-origin: right  top;
+    transform-origin: right top;
 }
 
-.screen02 .key{
+.screen02 .key {
     position: absolute;
-     left:50%;
-     transform: translate(-50%);
-     top:0;
-     opacity: 0;
-
+    left: 50%;
+    transform: translate(-50%);
+    top: 0;
+    opacity: 0;
 }
-.screen02.now .key{
 
+.screen02.now .key {
     opacity: 1;
-    transition: all 0.8s  1s;
+    transition: all 0.8s 1s;
 }
 
-.screen02.now  .searchInput{
-
-   animation: searchInputShow02  2s linear forwards ;
+.screen02.now .searchInput {
+    animation: searchInputShow02 2s linear forwards;
 }
 
-
-.screen02.leave .sofa{
-
-    animation: sofaDown02 1s linear ;
-
+.screen02.leave .sofa {
+    animation: sofaDown02 1s linear;
 }
 
-@keyframes  sofaDown02{
-
-    from{
-
+@keyframes sofaDown02 {
+    from {
         opacity: 1;
     }
-
-    50%{
-
-        transform: translate(-40px,500px);
-    
+    50% {
+        transform: translate(-40px, 500px);
     }
-
-    to{
-        transform: translate(-80px,640px);
-
-    };
+    to {
+        transform: translate(-80px, 640px);
+    }
+    ;
 }
-@keyframes searchInputShow02{
-    0%{
 
-        transform: translate(2000px,180px);
-        
+@keyframes searchInputShow02 {
+    0% {
+        transform: translate(2000px, 180px);
     }
-
-    33%{
-
-        transform: translate(-150px,120px);
-     
+    33% {
+        transform: translate(-150px, 120px);
     }
-    63%{
-
-        transform: translate(-150px,120px);
-  
+    63% {
+        transform: translate(-150px, 120px);
     }
-
-    100%{
-
+    100% {
         transform: scale(0.7);
     }
-   
-
-}
-@keyframes sofasShow02{
-    from{
-  
-        transform: translate(-50%)  scale(0) ;
-
- 
-
-    }
-
-    50%{
-        transform:translate(-50%) scale(0.5)  ;
-
- 
-    }
-
-
-    to{
-        transform:translate(-50%) scale(1) ;
-      
-    }
 }
 
+@keyframes sofasShow02 {
+    from {
+        transform: translate(-50%) scale(0);
+    }
+    50% {
+        transform: translate(-50%) scale(0.5);
+    }
+    to {
+        transform: translate(-50%) scale(1);
+    }
+}
 
 /*
 第三屏
 */
 
-.screen03{
-    background: url(../images/03-bg.png)  center bottom;
-
-
+.screen03 {
+    background: url(../images/03-bg.png) center bottom;
 }
 
-
-.screen03 .sofa{
-
-   position: absolute;
-   z-index: 2000;
-   opacity: 0;
-   top:184px;
-   left: 209px;
-
+.screen03 .sofa {
+    position: absolute;
+    z-index: 2000;
+    opacity: 0;
+    top: 184px;
+    left: 209px;
 }
-.screen03.now .sofa{
 
+.screen03.now .sofa {
     opacity: 1;
     transform: scale(1);
-    transition: position  0.5s linear 0.8s;
+    transition: position 0.5s linear 0.8s;
 }
 
-.screen03 .cart01{
-
+.screen03 .cart01 {
     position: absolute;
     bottom: 100px;
     left: 487px;
 }
 
-.screen03 .cart02{
+.screen03 .cart02 {
     position: absolute;
-  
-    top:300px;
-
-    left:487px;
+    top: 300px;
+    left: 487px;
 }
 
-.screen03.leave .sofa{
-
-    animation: sofaDown03 1s linear ;
-
+.screen03.leave .sofa {
+    animation: sofaDown03 1s linear;
 }
 
-
-
-@keyframes  sofaDown03{
-
-    from{
-
-        transform: translate(80px,100px)  rotate(45deg);
-    
+@keyframes sofaDown03 {
+    from {
+        transform: translate(80px, 100px) rotate(45deg);
     }
-
-    to{
-        transform: translate(410px,630px) rotate(45deg);
-
-    };
-
+    to {
+        transform: translate(410px, 630px) rotate(45deg);
+    }
+    ;
 }
-
-
 
 /*
 第四屏
 */
-.screen04{
 
-    background: url("../images/04-bg.png")  center bottom;
-
+.screen04 {
+    background: url("../images/04-bg.png") center bottom;
     text-align: center;
-
 }
 
-
-.screen04 .cloud{
-
+.screen04 .cloud {
     position: absolute;
-    top:-60px;
+    top: -60px;
     left: 100px;
     z-index: 2000;
 }
 
-
-.screen04  .text01{
-
+.screen04 .text01 {
     margin-top: 50px;
 }
-.screen04  .text02{
-    position:absolute;
+
+.screen04 .text02 {
+    position: absolute;
     opacity: 0;
 }
-.screen04  .text01.show{
 
-    position:absolute;
+.screen04 .text01.show {
+    position: absolute;
     opacity: 0;
-
-    transition: all  0.1s  linear;
+    transition: all 0.1s linear;
 }
-.screen04  .text02.show{
+
+.screen04 .text02.show {
     margin-top: 50px;
     position: static;
     opacity: 1;
-    
-    transition: opacity  0.2s  linear;
+    transition: opacity 0.2s linear;
 }
 
-
-.screen04  .cart{
-
-    position:absolute;
-
+.screen04 .cart {
+    position: absolute;
     bottom: 0;
     left: 500px;
-
-    
 }
 
-.screen04  .cart img:nth-child(1){
-
+.screen04 .cart img:nth-child(1) {
     position: relative;
     z-index: 9000;
 }
 
-.screen04  .sofa{
-
-    position:absolute;
+.screen04 .sofa {
+    position: absolute;
     opacity: 0;
-  
-    bottom:225px;
+    bottom: 225px;
     left: 118px;
-    
 }
 
-.screen04  .address{
+.screen04 .address {
     width: 100%;
-    margin: 0  auto;
+    margin: 0 auto;
     text-align: center;
     position: relative;
     display: none;
-
 }
 
-.screen04  .address  img:nth-child(2){
-  position: absolute;
-  left:50%;
-  transform:  translateX(-50%);
-  top:50px;
-
-  display: none;
-
+.screen04 .address img:nth-child(2) {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 50px;
+    display: none;
 }
 
-
-.screen04.now  .sofa{
-
+.screen04.now .sofa {
     opacity: 1;
-  
-
-    transform:rotate(45deg);
-
+    transform: rotate(45deg);
 }
 
-
-.screen04.now  .cart{
-
-      transition: all  1s linear;
-      transform:translateX(1000px);
+.screen04.now .cart {
+    transition: all 1s linear;
+    transform: translateX(1000px);
 }
 
-
-.screen04.now .cloud{
-
-    animation: cloud04 6s infinite  linear  alternate;
+.screen04.now .cloud {
+    animation: cloud04 6s infinite linear alternate;
 }
 
-@keyframes  leaveOut04{
-
-    from{
-
+@keyframes leaveOut04 {
+    from {
         transform: translateX(10px);
     }
-
-    to{
-
+    to {
         transform: translateX(1000px);
     }
 }
 
-
-@keyframes cloud04{
-    from{
-
-    transform: translateX(280px);
+@keyframes cloud04 {
+    from {
+        transform: translateX(280px);
     }
-
-    to{
+    to {
         transform: translateX(-300px);
-
     }
 }
 
-
-
-.screen05{
-
-    background: url("../images/05-bg.png")  center  bottom;
-   
+.screen05 {
+    background: url("../images/05-bg.png") center bottom;
 }
 
-
-
-.screen05  .text{
-
+.screen05 .text {
     position: absolute;
-    top:0;
+    top: 0;
     left: 0;
 }
 
-.screen05  .left{
-
+.screen05 .left {
     position: absolute;
-
-    top:210px;
+    top: 210px;
     left: 0;
 }
-.screen05  .card{
 
+.screen05 .card {
     position: relative;
     z-index: 2;
 }
 
-.screen05  .order{
-
+.screen05 .order {
     position: absolute;
-    left:100px;
-    top:0;
+    left: 100px;
+    top: 0;
 }
 
-
-.screen05  .order.show{
-
+.screen05 .order.show {
     transform: translateY(-120px);
     transition: all 1s linear;
-
 }
-.screen05  .sofa{
 
+.screen05 .sofa {
     position: absolute;
-
-    top:-400px;
-    left:130px;
+    top: -400px;
+    left: 130px;
     transform: rotate(30deg);
     opacity: 0;
 }
 
-.screen05  .sofa.down{
-
+.screen05 .sofa.down {
     z-index: 1;
     opacity: 1;
-    transform:translateY(560px)   rotate(30deg);
-    transition:  transform  1s linear ;
+    transform: translateY(560px) rotate(30deg);
+    transition: transform 1s linear;
 }
-.screen05 .hand{
 
+.screen05 .hand {
     position: absolute;
-    right:118px;
-    top:600px;
+    right: 118px;
+    top: 600px;
     z-index: 200;
     opacity: 0;
 }
 
-.screen05.now  .hand {
-
+.screen05.now .hand {
     transform: translateY(-360px);
     transition: transform 0.5s linear;
     opacity: 1;
 }
 
-
-.screen05  .mouse{
- 
+.screen05 .mouse {
     position: absolute;
-    right:0;
-    bottom:0;
+    right: 0;
+    bottom: 0;
     overflow: hidden;
     width: 400px;
     height: 100%;
-
-}
-.screen05 .mouse1{
-
-    position: absolute;
-    right:70px;
-    bottom:220px;
 }
 
-.screen05 .mouse2{
- 
+.screen05 .mouse1 {
     position: absolute;
-    right:70px;
-    bottom:220px;
-  
+    right: 70px;
+    bottom: 220px;
+}
+
+.screen05 .mouse2 {
+    position: absolute;
+    right: 70px;
+    bottom: 220px;
     opacity: 0;
 }
 
-.screen05.now .mouse1{
-
-    opacity: 0;  
-
-    transition:all 0.3s linear 0.8s;
+.screen05.now .mouse1 {
+    opacity: 0;
+    transition: all 0.3s linear 0.8s;
 }
 
-.screen05.now .mouse2{
-
-    opacity: 1;  
-   
-    transition:all 0.3s linear 0.8s;
+.screen05.now .mouse2 {
+    opacity: 1;
+    transition: all 0.3s linear 0.8s;
 }
 
-.screen05.leave  .sofa{
-
- 
-  
-    animation: sofa05Leave  1s linear forwards;
-  
+.screen05.leave .sofa {
+    animation: sofa05Leave 1s linear forwards;
 }
 
-@keyframes  sofa05Leave{
-
-    from{}
-
-    50%{
-
-        transform: translateY(800px)   scale(0.5) ;
+@keyframes sofa05Leave {
+    from {}
+    50% {
+        transform: translateY(800px) scale(0.5);
     }
-    to{  transform: translateY(910px)   scale(0) ; }
+    to {
+        transform: translateY(910px) scale(0);
+    }
 }
-
 
 /*
 第六屏
 */
 
-.screen06{
-
-    background: url("../images/06-bg.png")  20% bottom  repeat-x;
+.screen06 {
+    background: url("../images/06-bg.png") 20% bottom repeat-x;
 }
 
-
-.screen06  .cloud{
-
+.screen06 .cloud {
     position: absolute;
-    top:-20px;
+    top: -20px;
     left: 300;
-    animation: cloud04 6s infinite  linear  alternate;
-    
+    animation: cloud04 6s infinite linear alternate;
     z-index: 1;
 }
 
-
-.screen06 .wuliu{
+.screen06 .wuliu {
     position: absolute;
     bottom: 0;
-    left:150;
+    left: 150;
 }
 
-.screen06 .buyer,
-.screen06 .address{
+.screen06 .buyer, .screen06 .address {
     position: absolute;
     right: -22px;
-    top:-48px;
+    top: -48px;
     display: none;
-
 }
-.screen06.run .buyer{
 
+.screen06.run .buyer {
     display: block;
 }
 
-
-.screen06 .worker{
-
+.screen06 .worker {
     bottom: 0px;
     left: 0;
     position: absolute;
@@ -697,255 +536,184 @@
     transform-origin: left bottom;
 }
 
-.screen06.now .worker{
+.screen06.now .worker {
+    animation: workerShow 1s linear 3s forwards;
+}
 
-    animation: workerShow 1s linear  3s forwards;
- }
- 
-.screen06 .box{
-
+.screen06 .box {
     position: absolute;
     top: 50px;
     left: 150px;
     z-index: 5;
 }
 
-.screen06 .box{
-
+.screen06 .box {
     position: absolute;
     top: 168px;
-    left: -300px;  
+    left: -300px;
 }
-.screen06 .box.move{
 
+.screen06 .box.move {
     display: block;
     animation: boxDown06 2s linear;
-    
 }
 
 .screen06.run {
-
-    animation: bgRun  2s linear  forwards;
+    animation: bgRun 2s linear forwards;
 }
 
-
-.screen06   .customerHome{
-
+.screen06 .customerHome {
     position: absolute;
     right: 32px;
     bottom: 116px;
 }
 
-.screen06  .door{
-
+.screen06 .door {
     display: none;
 }
-.screen06 .person{
 
+.screen06 .person {
     position: absolute;
     opacity: 0;
     right: 0;
     bottom: 0;
-
 }
 
-
-.screen06 .person.show{
+.screen06 .person.show {
     opacity: 1;
-
     transform: translateX(-100px);
+    transition: transform 0.5s linear;
+}
 
-    transition: transform   0.5s linear;
- }
-
-
- .screen06 .say{
-
+.screen06 .say {
     position: absolute;
     right: 320px;
     bottom: 380px;
-
     display: none;
-
 }
 
-.screen06 .say.show{
+.screen06 .say.show {
     display: block;
-
 }
 
-.screen06  .text02{
-
+.screen06 .text02 {
     display: none;
 }
-.screen06.textChange  .text01{
-    display: none;
-    
-}
-.screen06.textChange   .text02{
 
+.screen06.textChange .text01 {
+    display: none;
+}
+
+.screen06.textChange .text02 {
     display: block
 }
 
-
-@keyframes  workerShow{
-
-    from{
-        transform: none;     
+@keyframes workerShow {
+    from {
+        transform: none;
     }
-
-    50%{
+    50% {
         transform: translateY(-112px);
     }
-    to{
-
-        transform:translateY(-112px) translateX(240px);
+    to {
+        transform: translateY(-112px) translateX(240px);
     }
-  
 }
 
-@keyframes  boxDown06{
-
-
-    from{
-
-       
-
-    }
-    50%{
-
+@keyframes boxDown06 {
+    from {}
+    50% {
         transform: translateX(470px);
     }
-    to{
-
-        transform: translateX(470px)  translateY(226px);
+    to {
+        transform: translateX(470px) translateY(226px);
     }
-  
 }
 
-
-
-
-@keyframes  bgRun{
-
-    from{
-        background-position:5%;
+@keyframes bgRun {
+    from {
+        background-position: 5%;
     }
-
-
-    24%{
-
+    24% {
         background-position: 25%;
     }
-
-    48%{
-
+    48% {
         background-position: 55%;
     }
-
-    70%{
-
+    70% {
         background-position: 75%;
     }
-    100%{
-
+    100% {
         background-position: 96%;
     }
-  
 }
 
 /*
 第七屏
 */
 
-.screen07{
-
-
-    background: url("../images/07-bg.png")  center  bottom;
+.screen07 {
+    background: url("../images/07-bg.png") center bottom;
 }
 
-
-
-.screen07  .star{
-
+.screen07 .star {
     position: absolute;
     left: 158px;
     top: 143px;
-
-
 }
 
-.screen07  .star img{
+.screen07 .star img {
     margin-right: 6px;
     float: left;
     display: none;
 }
 
-.screen07   .goodPingjia{
+.screen07 .goodPingjia {
     position: absolute;
     left: 158px;
     top: 180px;
     transform: scale(0);
 }
 
-.screen07.now   .goodPingjia{
-   animation: goodPingjia07  0.8s linear 2.3s  forwards;
+.screen07.now .goodPingjia {
+    animation: goodPingjia07 0.8s linear 2.3s forwards;
 }
 
-
-@keyframes  goodPingjia07{
-
-    from{
-
-
-    }
-
-    50%{
-
+@keyframes goodPingjia07 {
+    from {}
+    50% {
         transform: scale(1.5);
     }
-    to{
-
+    to {
         transform: none;
     }
 }
 
-.screen08{
-
-    background: url("../images/08-bg.png")    center bottom;
-
-
+.screen08 {
+    background: url("../images/08-bg.png") center bottom;
 }
 
-.screen08 .btn{
-
+.screen08 .btn {
     position: relative;
     width: 389px;
-    margin: 0  auto;
+    margin: 0 auto;
 }
 
-.screen08 .btn2  {
-
+.screen08 .btn2 {
     position: absolute;
     left: 0;
-
     top: 0;
     display: none;
 }
 
-
-.screen08  .hand{
+.screen08 .hand {
     position: absolute;
     left: 500px;
     bottom: 0;
-
-
 }
 
-.screen08  .again{
+.screen08 .again {
     position: absolute;
     right: 200px;
     top: 60px;
-
-
 }
