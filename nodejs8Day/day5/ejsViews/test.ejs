@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>table模块快速使用</title>
+    <link rel="stylesheet" href="/public/css/layui.css" media="all">
+</head>
+
+<body>
+
+<p> 状态码<%=code%> 信息：<%=msg%> 条数：<%=count%></p>
+    <table border="1">
+        <tr>
+            <td>编号</td>
+            <td>姓名</td>
+            <td>密码</td>
+        </tr>
+
+        <%for(var i=0;i<data.length;i++){%>
+        <tr>
+            <td>
+                <%=data[i].id%>
+            </td>
+            <td>
+                <%=data[i].name%>
+            </td>
+            <td>
+                <%=data[i].password%>
+            </td>
+        </tr>
+
+        <%}%>
+            </table>
+<table id="demo" lay-filter="test"></table>
+<script src="/public/layui.js"></script>
+<script src="/public/js/jquery-3.2.1.min.js"></script>
+<script>
+    layui.use('table', function(){
+      var table = layui.table;
+
+      //第一个实例
+      table.render({
+        elem: '#demo'
+        ,height: 312
+        ,url: '/test' //数据接口
+        ,page: false //开启分页
+        ,cols: [[ //表头
+          {field: 'id', title: 'ID', width:80, sort: true, fixed: 'left'}
+          ,{field: 'name', title: '用户名', width:80}
+          ,{field: 'password', title: '密码', width:80, sort: true}
+        //   ,{field: 'city', title: '城市', width:80} 
+        //   ,{field: 'sign', title: '签名', width: 177}
+        //   ,{field: 'experience', title: '积分', width: 80, sort: true}
+        //   ,{field: 'score', title: '评分', width: 80, sort: true}
+        //   ,{field: 'classify', title: '职业', width: 80}
+        //   ,{field: 'wealth', title: '财富', width: 135, sort: true}
+        ]]
+      });
+
+    });
+
+
+    $(function () {
+
+        // loadData();
+
+    })
+
+    function loadData() {
+
+
+        $.post('/test', {}, function (data) {
+
+            $("#tData").empty();
+
+            if (data.flag === 'yes') {
+                for (let i = 0; i < data.msg.length; i++) {
+                    console.log("ddd");
+                    $("<tr><td>" + data.msg[i].id + "</td><td>" + data.msg[i].name + "</td><td>" + data.msg[i].password + '</td><td><a href="#" class="delLinks" id="' + data.msg[i].id + '">删除</a></td></tr>').appendTo("#demo");
+                    // bindDeleteClick();
+                }
+            } else {
+
+                layer.msg(data.msg, {
+                    icon: 5
+                })
+            }
+
+        })
+    }
+</script>
+</body>
+</html>

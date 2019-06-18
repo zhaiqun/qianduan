@@ -1,0 +1,128 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        canvas {
+
+            border: 1px solid rebeccapurple;
+        }
+    </style>
+
+    <script>
+        window.onload = function () {
+            new Person().init();
+
+        };
+
+
+        function Person() {
+            this.ctx = document.querySelector("canvas").getContext("2d");
+            this.canvasWidth = this.ctx.canvas.width;
+
+            this.canvasHeight = this.ctx.canvas.height;
+            this.direction = 0;//0,1,2
+            this.timeid;
+
+            this.x = this.canvasWidth / 2;//位置x
+            this.y = this.canvasHeight / 2;//位置y
+            this.index = 0;
+            this.step = 10;
+            this.src="image/03.png";
+
+        }
+
+
+        Person.prototype.init = function () {
+
+            var img = this.loadImg(this.drawPerson);
+            var that = this;
+            window.onkeydown = function (e) {
+                var evt = e || window.event;
+                console.log(evt.keyCode);
+                var direction;
+                if (evt.keyCode == 38) {//上
+                    that.direction = 3;
+                    that.y -= 10;
+                }
+                if (evt.keyCode == 40) {//下
+                    that.direction = 0;
+                    that.y += 10;
+                }
+
+                if (evt.keyCode == 37) {//左
+                    that.direction = 1;
+                    that.x -= 10;
+                }
+
+                if (evt.keyCode == 39) {//右
+                    that.direction = 2;
+                    that.x += 10;
+                }
+
+                that.drawPerson(img);
+            }
+        }
+
+
+
+        Person.prototype.loadImg = function (f) {
+            var img = new Image();
+            img.src = this.src;
+            var  that=this;
+            img.onload = function () {
+
+                f && f.bind(that)(img);
+            }
+
+            return img;
+
+        };
+        Person.prototype.drawPerson = function (img) {
+
+            var that = this;
+            var imgWidth = img.width;
+            var imgHeight = img.height;
+            var personWidth = imgWidth / 4;
+            var personHeight = imgHeight / 4;
+
+            // (setInterval.bind(this))(() => {
+
+            //     ctx.clearRect(0, 0, width, height);
+            //     if (index > 3) {
+            //         index = 0;
+            //     }
+            //     ctx.drawImage(image, index * personWidth, direction * personHeight, personWidth, personHeight, x, y, personWidth, personHeight);
+            //     index++;
+
+            // }, 300);
+            var that1 = this;
+
+            var  x = that.x - personWidth / 2;
+            var  y = that.y - personHeight / 2;
+            that.ctx.clearRect(0, 0, that.canvasWidth, that.canvasHeight);
+            if (that.index > 3) {
+                that.index = 0;
+            }
+            that.ctx.drawImage(img, that.index * personWidth, that.direction * personHeight, personWidth, personHeight, x, y, personWidth, personHeight);
+            that.index++;
+
+        };
+
+    </script>
+</head>
+
+<body>
+
+
+    <canvas width="800" height="600">
+
+
+    </canvas>
+</body>
+
+</html>

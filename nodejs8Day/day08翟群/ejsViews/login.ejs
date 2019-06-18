@@ -1,0 +1,59 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="public/style/register-login.css">
+
+    <script src="public/js/jquery-3.2.1.min.js">
+
+    </script>
+
+    <script>
+        $(function () {
+            $("#btnLogin").click(function () {
+                $.post('/login', {
+                    email: $('#email').val(),
+                    pwd: $("#pwd").val()
+                }, function (result) {
+                        if (result.flag == 1) {
+                            window.location.href = "/addArticle";
+                        } else {
+
+                            $('#errorLogin').html(result.msg);
+                        }
+
+
+                    })
+
+
+            })
+
+        })
+    </script>
+</head>
+
+<body>
+    <div class="register-box">
+        <h1>知乎</h1>
+        <p>生活热爱分享 - Thousands Find</p>
+
+        <p> <a href="/login">登录</a> &nbsp;&nbsp;&nbsp; <a href="/">注册</a></p>
+        <div class="inputDiv">
+            <div>
+                <input id="email" type="text" placeholder="邮箱地址">
+            </div>
+            <div>
+                <input id="pwd" type="password" placeholder="输入您的登录密码">
+            </div>
+        </div>
+
+        <button id="btnLogin">登录</button>
+        <span id="errorLogin" class="error"></span>
+
+    </div>
+</body>
+
+</html>

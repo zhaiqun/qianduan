@@ -1,0 +1,79 @@
+<html>
+
+<head>
+    <title>发布文章</title>
+    <link rel="stylesheet" href="public/css/layui.css">
+    <script src="public/layui.js"></script>
+    <script type="text/javascript" src="/public/js/jquery-3.2.1.min.js"></script>
+</head>
+
+<body>
+    <!-- https://www.layui.com/doc/modules/layedit.html  layui编辑器地址 -->
+    <div style="margin-left:100px;margin-top:30px;margin-bottom: 20px;">欢迎 <span
+            style="font-size:14px;color:red;font-weight:bolder;"><%=name%> </span> 登录&nbsp;&nbsp; <button
+            class="layui-btn" id="btnLogOut">退出登录</button></div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">文章标题</label>
+        <div class="layui-input-block">
+            <input type="text" name="title" id="title" lay-verify="title" autocomplete="off" placeholder="请输入标题"
+                class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item layui-form-text">
+        <label class="layui-form-label">文章内容</label>
+        <div class="layui-input-block">
+            <textarea placeholder="请输入内容" class="layui-textarea" id="content"></textarea>
+        </div>
+    </div>
+    <div style="text-align: right;margin-right: 200px"><button class="layui-btn layui-btn-lg"
+            id="addArticeInfo">发布文章</button> <span id="errMsg"
+            style="font-size:14px;color:red;font-weight:bolder"></span></div>
+
+    <script>
+        var index; // 编号，该编辑器的编号。
+        layui.use('layedit', function () {
+            var layedit = layui.layedit;
+            index = layedit.build('content'); //建立编辑器
+        });
+    </script>
+
+
+    <script>
+        $(function () {
+            $("#btnLogOut").click(function () {
+                $.post("/logOut", {}, function (result) {
+                    if (result && result.flag == 1) {
+
+                        window.location.href = "/login";
+
+                    } else {
+
+                        alert(result.msg);
+
+                    }
+                });
+
+            });
+            $("#addArticeInfo").click(function () {
+                var title = $('#title').val();
+                var layedit = layui.layedit; //获取编辑器对象
+                var content = layedit.getContent(index); //获取了编辑器的内容
+                $.post("/addArticle" ,
+                    {
+                        atitle: title,
+                        acontent: content
+                    }, function (result) {
+                        if (result.flag == 1) {
+                            window.location.href = "/ArticleDetail?id=" + result.id;
+                        }
+
+
+                    });
+
+
+            });
+
+
+        });
+    </script>

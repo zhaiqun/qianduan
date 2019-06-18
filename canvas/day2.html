@@ -1,0 +1,41 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+
+    canvas{
+
+        border:1px  solid red;
+    }
+    </style>
+
+    <script>
+        window.onload = function () {
+            var ctx=document.querySelector("canvas").getContext("2d");
+
+            for (let index = 0; index < 200; index++) {
+               var  y=Math.pow(index-100,2) +2*index +2;
+               ctx.lineTo(index,y);
+            }
+            ctx.stroke();
+
+            ctx.beginPath();
+
+            ctx.arc(ctx.canvas.width/2,ctx.canvas.height/2,150,0, Math.PI/2,true);
+            ctx.stroke();
+        }
+    </script>
+</head>
+
+<body>
+    <canvas  width="600"  height="400">
+
+    </canvas>
+</body>
+
+</html>

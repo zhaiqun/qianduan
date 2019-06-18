@@ -26,6 +26,7 @@
         ul {
 
             float: left;
+            overflow: hidden;
         }
 
         ul li {
@@ -67,6 +68,16 @@
 
             color: red;
         }
+
+        .clearfix::after {
+
+            content: "";
+            display: block;
+            height: 0;
+            visibility: hidden;
+            clear: both;
+
+        }
     </style>
 </head>
 
@@ -80,7 +91,7 @@
         console.log(div1.classList);
 
         console.log(div1.dataset);
-        div1.dataset.hobby="唱歌";
+        div1.dataset.hobby = "唱歌";
 
         console.log(div1.dataset);
 
@@ -90,11 +101,11 @@
 </script>
 
 <body>
-    <div class="div1"  data-user="xj" data-age="18"  gg="hh">
+    <div class="div1" data-user="xj" data-age="18" gg="hh">
 
         122
         <div class="child">
-            <ul>
+            <ul class="clearfix">
                 <li></li>
                 <li></li>
                 <li></li>
@@ -108,7 +119,7 @@
 
     </div>
 
-    <div class="father">
+    <div class="father  clearfix">
 
         <div class="samll">
 

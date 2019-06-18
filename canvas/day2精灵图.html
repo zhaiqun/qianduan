@@ -1,0 +1,58 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        canvas {
+
+            border: 1px solid red;
+        }
+    </style>
+
+    <script>
+
+        window.onload = function () {
+            var ctx = document.querySelector("canvas").getContext("2d");
+            var image = new Image();
+
+            var width = ctx.canvas.width;
+            var height = ctx.canvas.height;
+            image.src = "image/03.png";
+            image.onload = function () {
+                var imgWidth=image.width;
+                var imgHeight=image.height;
+                var  personWidth=imgWidth/4;
+                var  personHeight=imgHeight/4;
+                var  index=0;
+                setInterval(() => {
+
+                    ctx.clearRect(0,0,width,height);
+                    if (index>3) {
+                        index=0;
+                    }
+                    ctx.drawImage(image,index*personWidth,0,personWidth,personHeight,width/2,height/2,personWidth,personHeight,);
+                    index++;
+              
+                }, 300);
+              
+
+            };
+
+    
+
+        }
+
+    </script>
+</head>
+
+<body>
+    <canvas width="800" height="600">
+
+    </canvas>
+</body>
+
+</html>

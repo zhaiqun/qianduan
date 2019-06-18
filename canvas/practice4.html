@@ -1,0 +1,52 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        canvas {
+
+            border: 1px solid rebeccapurple;
+        }
+    </style>
+
+    <script>
+
+        window.onload = function () {
+
+            var canvas = document.querySelector("canvas");
+
+            var ctx = canvas.getContext("2d");
+            // ctx.rect(100,100,200,250);
+
+            // ctx.stroke();
+
+            // ctx.strokeRect(100,100,200,250);
+
+            // ctx.fillRect(100, 100, 200, 250);
+            // ctx.clearRect(10, 10, 20, 25);
+
+
+
+            var linerGradient = ctx.createLinearGradient(100, 200, 200, 400);
+            linerGradient.addColorStop(0,"yellow");
+            linerGradient.addColorStop(0.5,"green");
+            linerGradient.addColorStop(1,"red");
+
+            ctx.fillStyle=linerGradient;
+
+            ctx.fillRect(100, 200, 200, 200);
+        }
+    </script>
+</head>
+
+<body>
+    <canvas width="600" height="400">
+
+    </canvas>
+</body>
+
+</html>

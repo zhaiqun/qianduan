@@ -1,0 +1,96 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="public/style/register-login.css">
+    <script src="public/js/jquery-3.2.1.min.js">
+
+    </script>
+
+
+    <script>
+        $(function () {
+            $('#email').blur(function () {
+                $("#errorEmail").html("").hide();
+                if ($('#email').val().trim().length === 0) {
+                    $("#errorEmail").html("邮箱地址不能为空").show();
+                    return false;
+                }
+                $.post('/checkEmail', { email: $('#email').val() }, function (result) {
+                    if (result.flag != 1) {
+                        $("#errorEmail").html(result.msg).show();
+                    } else {
+
+
+                    }
+
+                });
+            })
+
+            $('#pwd2').blur(function () {
+                $("#errorPwd").html("").hide();
+                if ($('#pwd1').val() != $('#pwd2').val()) {
+                    $("#errorPwd").html("两次密码不一致").show();
+                }
+
+            })
+
+            $('#btnRegister').click(function () {
+                $('#errorRegister').text('').hide();
+                $.post("/register", {
+                    email: $("#email").val(),
+                    name: $("#name").val(),
+                    pwd1: $("#pwd1").val(),
+                    pwd2: $("#pwd2").val()
+                }, function (result) {
+                    if (result.flag==1) {
+                        window.location.href="/login";
+                    }else{
+
+                       $('#errorRegister').text(result.msg).show();
+                    }
+                    
+
+                })
+
+
+            })
+
+        })
+    </script>
+</head>
+
+<body>
+    <div class="register-box">
+        <h1>知乎</h1>
+        <p>生活热爱分享 - Thousands Find</p>
+
+        <p> <a href="/login">登录</a>&nbsp;&nbsp;&nbsp; <a href="/">注册</a></p>
+        <div class="inputDiv">
+            <div>
+                <input type="text" placeholder="邮箱地址" id="email">
+                <span class="error"  id="errorEmail"></span>
+            </div>
+            <div>
+                <input type="text" id="name" placeholder="选择一个用户名">
+            </div>
+            <div>
+                <input type="password" id='pwd1' placeholder="设置登录密码">
+            </div>
+            <div>
+                <input type="password" id='pwd2' placeholder="重复密码">
+                <span class="error" id="errorPwd"></span>
+            </div>
+
+        </div>
+
+        <button id="btnRegister">注册</button>
+        <span id="errorRegister"  class="error"></span>
+
+    </div>
+</body>
+
+</html>

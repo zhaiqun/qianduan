@@ -1,0 +1,24 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<script>
+ var  image=new Image();
+
+ image.onload=function(){
+     console.log(image);
+     var  ctx=document.querySelector("canvas").getContext("2d");
+    //  ctx.drawImage(image,300,300,50,50);
+     ctx.drawImage(image,20,20,100,100,150,100,150,150);
+
+ };
+ image.src="image/01.jpg";
+</script>
+<body>
+    <canvas width="600"  height="600"></canvas>
+</body>
+</html>
