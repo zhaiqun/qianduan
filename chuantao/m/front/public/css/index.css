@@ -1,0 +1,50 @@
+.content {
+    position: relative;
+    height: 100%;
+}
+
+.categroy {
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc
+}
+
+.categroy a {
+    float: left;
+    width: 33.33%;
+}
+
+.categroy a img {
+    width: 100%
+}
+
+.product {
+    padding: 10px;
+}
+
+.product a {
+    float: left;
+    width: 48%;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    /* margin: 10px 10px; */
+}
+
+.product a:nth-child(2n+1) {
+    margin-right: 4%;
+}
+
+.product a img {
+    width: 100%;
+}
+
+.product p {
+    text-align: center;
+}
+
+.product p:nth-of-type(2) {
+    font-size: 12px;
+}
+
+.product p:nth-of-type(2) span:first-child {
+    color: red;
+}

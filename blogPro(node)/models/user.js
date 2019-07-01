@@ -1,4 +1,3 @@
-
 const moogdb = require('mongoose');
 
 
@@ -9,17 +8,20 @@ const ObjectId = Schema.ObjectId;
 
 const userSchema = new Schema({
     email: {
-        type: String, required: true
+        type: String,
+        required: true
     },
     pwd: {
-        type: String, required: true
+        type: String,
+        required: true
     },
     name: {
         type: String
     },
     date: {
-        type: Date, default: Date.now
-        /*  */
+        type: Date,
+        default: Date.now
+            /*  */
     }
 });
 

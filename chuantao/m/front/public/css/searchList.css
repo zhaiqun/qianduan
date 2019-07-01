@@ -1,0 +1,55 @@
+.orderUl {
+    background: #ccc;
+    margin: 0;
+    padding: 0;
+}
+
+.orderUl li {
+    width: 25%;
+    float: left;
+    list-style: none;
+    text-align: center;
+    font-size: 12px;
+    color: #555;
+    cursor: pointer;
+}
+
+.orderUl li.now {
+    color: red;
+}
+
+.orderUl li span {
+    font-size: 12px;
+}
+
+.product {
+    padding: 10px;
+}
+
+.product a {
+    float: left;
+    width: 48%;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    /* margin: 10px 10px; */
+}
+
+.product a:nth-child(2n+1) {
+    margin-right: 4%;
+}
+
+.product a img {
+    width: 100%;
+}
+
+.product p {
+    text-align: center;
+}
+
+.product p:nth-of-type(2) {
+    font-size: 12px;
+}
+
+.product p:nth-of-type(2) span:first-child {
+    color: red;
+}

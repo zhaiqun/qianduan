@@ -42,7 +42,7 @@ app.use(rooter);
 //     fs.writeFile('./1.txt',data);
 
 // })
-app.listen(5000, function () {
+app.listen(5000, function() {
 
     console.log(path.join(__dirname, "./views/test"));
     console.log("blog服务启动了")

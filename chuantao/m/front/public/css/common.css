@@ -1,0 +1,42 @@
+body {
+    height: 100%;
+}
+
+.mui-bar {
+    background-color: #006699;
+}
+
+.mui-bar .mui-title {
+    color: #fff;
+}
+
+.mui-bar-nav a {
+    color: #fff;
+    font-weight: bolder;
+}
+
+.mui-bar-footer {
+    height: 60px;
+    padding-top: 5px;
+}
+
+.mui-bar-footer a {
+    text-align: center;
+    float: left;
+    width: 25%;
+    /* font-size: 12px; */
+    display: block;
+    height: 44px;
+    /* line-height: 44px; */
+    /* display: inline-block */
+}
+
+.mui-bar-footer a span {
+    color: #fff;
+    font-size: 16px;
+}
+
+.mui-bar-footer a p {
+    font-size: 12px;
+    color: #fff;
+}
