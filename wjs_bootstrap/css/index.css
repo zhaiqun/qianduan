@@ -316,7 +316,6 @@ fieldset[disabled] .wjs_navbar .btn-link:focus {
 
 .wjs_banner .carousel-inner>.item>a:first-child {
     display: block;
-    height: 400;
     width: 100%;
     background-position: center;
     background-size: cover;
@@ -411,6 +410,7 @@ fieldset[disabled] .wjs_navbar .btn-link:focus {
     background-color: rgba(0, 0, 0, 0);
     filter: alpha(opacity=50);
     opacity: .5;
+    height: 100%;
 }
 
 .wjs_banner .carousel-control.left {
@@ -555,6 +555,9 @@ fieldset[disabled] .wjs_navbar .btn-link:focus {
     }
     .wjs_banner .carousel-indicators {
         bottom: 20px;
+    }
+    .wjs_banner .carousel-inner>.item>a:first-child {
+        height: 400px;
     }
 }
 

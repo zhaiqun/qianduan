@@ -1,0 +1,129 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        box-sizing: border-box;
+    }
+    
+    .clearfix::after {
+        content: "";
+        display: block;
+        height: 0;
+        visibility: hidden;
+        clear: both;
+    }
+    
+    .base {
+        margin-bottom: 10px;
+    }
+    
+    .base div {
+        width: 33.33%;
+        height: 30px;
+        background-color: yellow;
+        float: left;
+        margin-left: 10px
+    }
+    
+    .base div:nth-child(2) {
+        background-color: green;
+    }
+    
+    .base div:nth-child(3) {
+        background-color: grey;
+    }
+    
+    .base2 {
+        display: flex;
+    }
+    
+    .base2 div {
+        width: 33.33%;
+        height: 30px;
+        background-color: yellow;
+        flex: 1;
+        width: 200px;
+        margin-left: 10px
+    }
+    
+    .base2 div:nth-child(2) {
+        background-color: green;
+        flex: 1
+    }
+    
+    .base2 div:nth-child(3) {
+        background-color: grey;
+        flex: 3
+    }
+    
+    .test {
+        display: flex;
+        justify-content: space-between
+    }
+    
+    .base3 {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .base3 span {
+        width: 20px;
+    }
+    
+    .base3 p {
+        flex: 1;
+    }
+    
+    .base3 div {
+        height: 30px;
+        background-color: red;
+        margin-left: 10px;
+        flex: 1
+    }
+    
+    .base3 div:nth-child(2) {
+        /* height: 30px;
+        background-color: grey; */
+        /* margin-left: 10px */
+    }
+</style>
+
+<body>
+    <!-- <div class="base clearfix">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+    <div class="base2">
+        <div></div>
+        <div></div>
+   
+    </div>
+
+    <div class="test">
+        <span>1</span>
+        <p>wo </p>
+        <span>2</span>
+
+    </div> -->
+    <div class="base3">
+
+        <span>11</span>
+
+        <input type="text">
+        <span>44</span>
+        <!-- <span>22</span> -->
+    </div>
+</body>
+
+</html>

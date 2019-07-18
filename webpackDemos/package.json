@@ -8,7 +8,7 @@
         "dist": "npx webpack --config webpack.prod.config.js",
         "build": "npx webpack --config webpack.dev.config.js",
         "watch": "npx webpack  --watch  --config webpack.dev.config.js",
-        "start:dev": "webpack-dev-server --config webpack.dev.config.js"
+        "start:dev": "webpack-dev-server  --open --config webpack.dev.config.js"
     },
     "keywords": [],
     "author": "",

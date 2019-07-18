@@ -1,0 +1,573 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #f9f9f9;
+}
+
+a {
+    text-decoration: none
+}
+
+[class*='searchIcon'] {
+    background-image: url('images/sprit.png');
+    background-repeat: no-repeat;
+    background-size: 21px 123px;
+}
+
+[class*='icon'] {
+    background-image: url('images/ctrip.png');
+    background-repeat: no-repeat;
+    background-size: 104px 327px;
+}
+
+li {
+    list-style: none;
+}
+
+[class*='navicon'] {
+    background-image: url('images/spritNav.png');
+    background-size: 28px 280px;
+    width: 28px;
+    height: 25px;
+    display: block;
+    margin: 0 auto;
+}
+
+.containner {
+    min-width: 320px;
+    max-width: 580px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0 auto;
+}
+
+header {
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1000;
+}
+
+header a {
+    display: block;
+}
+
+header .search {
+    height: 40px;
+    z-index: 2000;
+    transition: all 0.6s linear;
+    min-width: 320px;
+    max-width: 580px;
+    width: 100%;
+    position: relative;
+    margin: 0 auto;
+}
+
+header .searchC {
+    padding: 8px 40px 8px 15px;
+}
+
+header .search span:nth-of-type(1) {
+    width: 17px;
+    height: 15px;
+    position: absolute;
+    background-position: 0 0;
+    left: 24px;
+    top: 15px;
+}
+
+header .search a:nth-of-type(1) {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    background-position: 0 -36px;
+    right: 10px;
+    top: 4px;
+}
+
+header .search a:nth-of-type(1).scroll,
+header .search a:nth-of-type(1).scroll::after {
+    color: #222;
+    background-position: 0 -78px;
+}
+
+header .search a:nth-of-type(1)::after {
+    content: "我的";
+    display: block;
+    top: 21px;
+    width: 24px;
+    font-size: 12px;
+    color: #fff;
+    position: absolute;
+}
+
+header .search input {
+    width: 100%;
+    height: 30px;
+    border: 0;
+    border-radius: 20px;
+    padding: 10px 30px;
+    display: block
+}
+
+header .search input.scroll {
+    background-color: #ccc;
+}
+
+.banner .swiper-container {
+    width: 100%;
+}
+
+.banner .swiper-wrapper {
+    height: auto;
+}
+
+.banner .swiper-container img {
+    width: 100%;
+}
+
+.banner .swiper-scrollbar {
+    width: 100px;
+    height: 20px;
+}
+
+nav {
+    border: 1px solid #ccc;
+    padding: 4px 4px;
+    color: #fff
+}
+
+nav .row {
+    display: flex;
+    height: 90px;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 5px;
+    background-color: #FF697A;
+}
+
+nav .row:nth-child(2) {
+    background-color: #3d98ff
+}
+
+nav .row:nth-child(3) {
+    background-color: #44c522
+}
+
+nav .row:nth-child(4) {
+    background-color: #fc9720;
+}
+
+nav .row div {
+    height: 100%;
+    border-right: 1px solid #fff;
+    flex: 1;
+    color: #fff;
+    text-align: center;
+    line-height: 44px;
+    font-size: 12px;
+}
+
+nav .row div:nth-child(3) {
+    border-right: none;
+}
+
+nav .row div:nth-child(1) a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    /* text-align: center */
+}
+
+nav .row div:nth-child(1) em,
+nav .row div:nth-child(1) i {
+    height: 50%;
+    line-height: 50px;
+    display: block;
+    text-align: center;
+    width: 44px;
+    margin: 0 auto;
+    background-position: 0 -127px;
+}
+
+nav .row div:nth-child(1) .iconFlight {
+    background-position: 0 -288px;
+}
+
+nav .row div:nth-child(1) .iconTravel {
+    background-position: 0 -181px;
+}
+
+nav .row div:nth-child(1) em {
+    font-style: normal
+}
+
+nav .column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between
+}
+
+nav .column a {
+    display: block;
+    flex: 1;
+    text-align: center;
+    line-height: 44px;
+    color: #fff;
+    text-shadow: 2px 2px rgb(0, 0, 0, 0.2);
+}
+
+nav .column a:nth-child(1) {
+    border-bottom: 1px solid #fff
+}
+
+nav .row5 {
+    display: flex;
+    padding: 8px 0;
+}
+
+nav .row5 a {
+    color: #222;
+    font-size: 12px;
+    display: block;
+    flex: 1;
+    text-align: center;
+}
+
+nav .row5 a:nth-child(1) span {
+    background-position: 0 0;
+}
+
+nav .row5 a:nth-child(2) span {
+    background-position: 0 -31px;
+}
+
+nav .row5 a:nth-child(3) span {
+    background-position: 0 -59px;
+}
+
+nav .row5 a:nth-child(4) span {
+    background-position: 0 -89px;
+}
+
+nav .row5 a:nth-child(5) span {
+    background-position: 0 -115px;
+}
+
+nav .row5:nth-child(2) {
+    border-bottom: 1px solid #ccc;
+}
+
+.sales {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 5px 15px 5px;
+    background: #fff;
+    border-bottom: 1px solid #ccc;
+}
+
+.sales .salesHeader {
+    flex: 1;
+    /* display: flex;
+    justify-content: space-between; */
+    padding: 15px 0;
+    position: relative;
+}
+
+.sales .salesHeader h2 {
+    text-indent: -9999px;
+    position: absolute;
+    left: 10px;
+    top: 1px;
+}
+
+.sales .salesHeader h2::before {
+    position: absolute;
+    display: block;
+    content: "";
+    width: 55px;
+    height: 15px;
+    background: url('images/un_home_text.png') 0 0 no-repeat;
+    background-size: 79px 58px;
+}
+
+.sales .salesHeader a {
+    background: linear-gradient(to right, #ff4e63, #ff6cc9);
+    border-radius: 10px;
+    font-size: 14px;
+    color: #fff;
+    width: 50px;
+    display: block;
+    text-align: center;
+    position: absolute;
+    right: 20px;
+    top: 1px;
+}
+
+.sales .salesContent {
+    flex: 5;
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+}
+
+.sales .salesContent .recommend {
+    width: 49.5%;
+}
+
+.sales .salesContent .recommend a {
+    width: 100%;
+    display: block;
+}
+
+.sales .salesContent .recommend img {
+    width: 100%
+}
+
+.sales .salesContent .recommend .textDesc {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    margin: 8px 0;
+}
+
+.sales .salesContent .recommend p {
+    text-align: center;
+    color: red;
+}
+
+.sales .salesContent .recommendR {
+    width: 49.5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.sales .salesContent .specialPrice {
+    width: 100%;
+    height: 49.5%;
+    background: #f9f9f9;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+}
+
+.sales .salesContent .specialPrice>div:nth-child(1) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center
+}
+
+.sales .salesContent .specialPrice>div:nth-child(1)>p:nth-child(1) {
+    color: fd3a51;
+    font-weight: bolder;
+    line-height: 24px;
+}
+
+.sales .salesContent .specialPrice>div:nth-child(2) {
+    text-align: center;
+    display: flex;
+    /* align-items: center */
+    align-items: center;
+}
+
+.sales .salesContent .specialPrice>div:nth-child(2) span {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    background: url('images/pic-tmh-02.png') no-repeat;
+    background-size: 50px 50px;
+}
+
+.sales .salesContent .abroadbuyandPay {
+    margin-top: 5px;
+    width: 100%;
+    height: 49.5%;
+    display: flex;
+    text-align: center;
+}
+
+.sales .salesContent .abroadbuyandPay .shopping {
+    margin-right: 5px;
+    background: #f9f9f9;
+    flex: 1;
+    padding: 10px 10px;
+}
+
+.sales .salesContent .abroadbuyandPay .shopping p:nth-child(1) {
+    color: #6aabff;
+    font-size: 14px;
+}
+
+.sales .salesContent .abroadbuyandPay .shopping span {
+    width: 50px;
+    height: 50px;
+    background: url('images/pic-tmh-04.png');
+    background-size: 50px 50px;
+    display: inline-block;
+}
+
+.sales .salesContent .abroadbuyandPay .play {
+    background: #f9f9f9;
+    flex: 1;
+    padding: 10px 10px;
+}
+
+.sales .salesContent .abroadbuyandPay .play span {
+    width: 50px;
+    height: 50px;
+    background: url('images/pic-tmh-03.png');
+    background-size: 50px 50px;
+    display: inline-block;
+}
+
+.sales .salesContent .abroadbuyandPay .play p:nth-child(1) {
+    color: #53ca72;
+    font-size: 14px;
+}
+
+.hot {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    border-top: 1px solid #ccc;
+}
+
+.hot .row {
+    border-bottom: 1px solid #ccc;
+}
+
+.hot h2 {
+    text-indent: -9999px;
+}
+
+.hot h2::before {
+    background: url('images/un_home_text.png') 0 -21px no-repeat;
+    background-size: 79px 58px;
+    display: block;
+    content: "";
+    width: 72px;
+    height: 15px;
+    position: absolute;
+    left: 5px;
+    top: 19px
+}
+
+.hot .row:nth-child(1) {
+    flex: 1;
+    padding: 10px 15px;
+    background-color: #fff;
+    height: 44px;
+    position: relative;
+}
+
+.hot .row:nth-child(1) a {
+    border-radius: 10px;
+    background: linear-gradient(to right, #ff4e63, #ff6cc9);
+    color: #fff;
+    font-size: 14px;
+    width: 110px;
+    display: block;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    position: absolute;
+    right: 10px;
+    top: 19px
+}
+
+.hot .row:nth-child(1) h2 span {
+    display: inline-block;
+    width: 36px;
+    height: 15px;
+    background: url('images/hotAdversie.png') no-repeat;
+    background-size: 36px 15px;
+    position: absolute;
+    left: 100px;
+    top: 19px
+}
+
+.hot .row:nth-child(n+2) a {
+    display: block;
+    flex: 1
+}
+
+.hot .row a:nth-child(2n+1) {
+    border-right: 1px solid #ccc;
+}
+
+.hot .row a img {
+    width: 100%;
+}
+
+.hot .row:nth-child(2) {
+    flex: 3;
+    display: flex;
+}
+
+.hot .row:nth-child(3) {
+    flex: 2;
+    display: flex;
+}
+
+.hot .row:nth-child(4) {
+    flex: 2;
+    display: flex;
+}
+
+footer {
+    padding: 10px 0;
+}
+
+footer>div {
+    display: flex;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px
+}
+
+footer>div a {
+    flex: 1;
+    display: block;
+    text-align: center;
+    font-size: 12px;
+    color: #333
+}
+
+footer>div .icon {
+    background-position: -59px -153px;
+    display: block;
+    width: 20px;
+    height: 20px;
+    margin: 0 auto;
+}
+
+footer>div a:nth-child(2) .icon {
+    background-position: -59px -173px;
+}
+
+footer>div a:nth-child(3) .icon {
+    background-position: -59px -256px;
+}
+
+footer p {
+    text-align: center;
+    font-size: 12px;
+    margin-top: 10px
+}
+
+footer p:nth-of-type(1) a {
+    color: #666;
+}
+
+footer p:nth-of-type(2) a {
+    color: #999;
+}

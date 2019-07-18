@@ -20,6 +20,8 @@ let commonConfig = {
                     {
                         loader: "eslint-loader",
                         options: {
+                            formatter: require("eslint/lib/cli-engine/formatters/stylish"),
+
                             // eslint options (if necessary)
                             fix: true
                         }
@@ -76,12 +78,12 @@ let commonConfig = {
             }
         })
     ],
-    plugins: {
+    // plugins: {
 
 
-        new webpack.NamedModulesPlugin(), // 更容易查看(patch)的依赖
-        new webpack.HotModuleReplacementPlugin() // 替换插件
-    }
+    //     new webpack.NamedModulesPlugin(), // 更容易查看(patch)的依赖
+    //     new webpack.HotModuleReplacementPlugin() // 替换插件
+    // }
 }
 
 module.exports = commonConfig;
