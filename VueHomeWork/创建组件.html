@@ -1,0 +1,70 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <my-templateg></my-templateg>
+        <my-template></my-template>
+        <mytemg2></mytemg2>
+        <my-extend-temp></my-extend-temp>
+    </div>
+
+</body>
+<template id="temp"><div>我是组件  <button  @click='showmsg'>点击我呀</button></div></template>
+<template id="tempglobal"><div>我是全局组件</div></template>
+
+</html>
+
+<script src="./lib/vue.js"></script>
+
+<script>
+    var extendTemp = Vue.extend({
+        template: '<p>extend实现tempalate</p>'
+    })
+    Vue.component('myExtendTemp', extendTemp)
+    Vue.component(
+        'myTemplateg', {
+            template: '#tempglobal'
+        }
+    )
+
+    Vue.component('mytemg2', {
+
+        template: '<h2>无template标签实现组件</h2>'
+    })
+    let vm = new Vue({
+        el: '#app',
+        data: {
+
+        },
+        methods: {
+
+        },
+        components: {
+
+            'myTemplate': {
+                template: '#temp',
+                data() {
+                    return {
+                        msg: '哈哈你好'
+                    }
+                },
+                methods: {
+
+                    showmsg() {
+
+                        alert(`组件里的方法被调用，组件里的data${this.msg}`)
+                    }
+                }
+            }
+
+        }
+
+    })
+</script>

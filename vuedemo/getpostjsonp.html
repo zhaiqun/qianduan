@@ -1,0 +1,65 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id='app'>
+        <input type="button" value="get" @click='get'>
+        <input type="button" value="post" @click='post'>
+        <input type="button" value="jsonP" @click='jsonP'>
+    </div>
+</body>
+
+</html>
+
+<script src="./node_modules/vue/dist/vue.js"></script>
+<script src="./node_modules/vue-resource/dist/vue-resource.js"></script>
+
+<script>
+    // 如果配置了全局的请求接口的根域名，则每次发起请求时，请求路径为相对路径
+    Vue.http.options.root = "http://vue.studyit.io"
+    Vue.http.options.emulateJSON = true
+    let vm = new Vue({
+        el: '#app',
+        getUrl: 'api/getlunbo',
+        postUrl: 'api/post',
+        jsonP: 'api/jsonp',
+        methods: {
+            get() {
+                this.$http.get('/test.json').then((res) => {
+                    console.log(res)
+                }, () => {
+                    document.write('error');
+                })
+
+            },
+            post() {
+                //发送 post 请求
+                this.$http.post(this.postUrl, {
+                    name: "菜鸟教程",
+                    url: "http://www.runoob.com"
+                }, {
+                    emulateJSON: true
+                }).then(function(res) {
+                    document.write(res.body);
+                }, function(res) {
+                    console.log(res.status);
+                });
+            },
+            jsonP() {
+                this.$http.jsonp(this.getUrl).then(function(res) {
+                    document.write(res.body);
+                }, () => {
+                    document.write('失败了');
+                })
+            }
+
+        },
+
+    })
+</script>

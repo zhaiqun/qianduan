@@ -1,0 +1,113 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app1">
+        <router-link to="/account">用户中心</router-link>
+        <p></p>
+        <router-view></router-view>
+    </div>
+    <template id="account">
+    <div>
+        用户中心组件
+        <p></p>
+        <router-link to="/account/login">登录</router-link>
+        <router-link to="/account/register">注册</router-link>
+<p></p>
+        <router-link to="/login"  tag="button">登录</router-link>
+        <router-link to="/register"  tag="button">注册</router-link>
+        <p></p>
+        <router-view></router-view>
+
+    </div>
+</template>
+
+    <template id="login">
+        <div>
+        
+           <form action="" method="POST" role="form">
+               <legend>   登录</legend>
+           
+               <div class="form-group">
+                   <label for="">用户名</label>
+                   <input type="text" class="form-control" id="" placeholder="用户名">
+               </div>
+           
+               
+           
+               <button type="submit" class="btn btn-primary">登录</button>
+           </form>
+           
+        </div>
+    </template>
+    <template id="register">
+            <div>
+            
+            <form action="" method="POST" role="form">
+                <legend>注册</legend>
+            
+                <div class="form-group">
+                    <label for="">用户名</label>
+                    <input type="text" class="form-control" id="" placeholder="用户名">
+                </div>
+            
+                
+            
+                <button type="submit" class="btn btn-primary">注册</button>
+            </form>
+            
+            </div>
+        </template>
+</body>
+
+</html>
+<script src="./node_modules/vue/dist/vue.js"></script>
+<script src="./node_modules/vue-router/dist/vue-router.js"></script>
+
+<script>
+    let account = {
+        template: '#account'
+    }
+    let login = {
+        template: '#login'
+    }
+    let register = {
+        template: '#register'
+    }
+    const router = new VueRouter({
+        routes: [{
+                path: "/account",
+                component: account,
+                children: [{
+                    path: "login",
+                    component: login,
+                }, {
+                    path: "register",
+                    component: register,
+                }, {
+                    path: "/login",
+                    component: login,
+                }, {
+                    path: "/register",
+                    component: register,
+                }]
+            }
+
+        ]
+    })
+    new Vue({
+
+        el: '#app1',
+        data: {},
+        methods: {
+
+        },
+        router: router
+    })
+</script>

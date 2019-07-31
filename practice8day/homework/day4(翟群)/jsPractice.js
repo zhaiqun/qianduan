@@ -1,5 +1,5 @@
 window.onload = function () {
-    document.getElementById("btnSum").onclick = function () {
+    /*document.getElementById("btnSum").onclick = function () {
         document.getElementById("result").innerHTML = "";
         var inputN = document.getElementById("inputN").value;
 
@@ -11,7 +11,7 @@ window.onload = function () {
         }
 
 
-    };
+    };*/
     document.getElementById("btnMaxAndMin").onclick = function () {
         document.getElementById("result2").innerHTML = "";
         var inputStr = document.getElementById("inputArray").value;

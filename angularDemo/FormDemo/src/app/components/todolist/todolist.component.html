@@ -1,0 +1,22 @@
+<div class="todoList">
+
+    <input type="text" (keydown)='add($event)' placeholder="input todo" [(ngModel)]="todo">
+
+    <hr>
+
+    <h4>要做的事情 </h4>
+    <ul>
+        <li *ngFor="let item of doList ; let key=index" [hidden]="item.status==1">
+            <p> <label for=""> <input (change)='doListStatusChange()' type="checkbox" [value]='item.title' [(ngModel)]="item.status">{{item.title}}</label> <button (click)='del(key)' class='delbtn'>X</button> </p>
+
+        </li>
+    </ul>
+
+    <h4>已完成的事情 </h4>
+    <ul>
+        <li *ngFor="let item of doList ; let key=index" [hidden]="item.status==0">
+            <p> <label for=""> <input  (change)='doListStatusChange()' type="checkbox" [value]='item.title' [(ngModel)]="item.status">{{item.title}}</label> <button (click)='del(key)' class='delbtn'>X</button> </p>
+
+        </li>
+    </ul>
+</div>

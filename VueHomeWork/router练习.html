@@ -1,0 +1,160 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="./lib/bootstarp/css/bootstrap.css">
+
+    <style>
+        .main .header a:hover {
+            text-decoration: none;
+        }
+        
+        .main .header .a-active {
+            color: green;
+            text-decoration: none;
+        }
+        
+        .w {
+            min-width: 320px;
+            max-width: 780px;
+            width: 100%;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .main {
+            width: 320px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%);
+            border: 1px solid #ccc;
+            height: 400px;
+        }
+        
+        .main>div:nth-of-type(2) {
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="w">
+            <div class="main">
+                <div class="header">
+
+                    <h1><img src="./logo3.png" alt="Responsive image" class="img-responsive  center-block"></h1>
+
+                    <h2 class="text-center">
+                        <router-link to="/login">用户登录</router-link>
+                        <router-link to="/register">用户注册</router-link>
+                    </h2>
+
+
+                </div>
+                <router-view></router-view>
+
+            </div>
+
+        </div>
+
+    </div>
+    <template id="loginTemp">
+            <div>
+            <form id="login-form">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">邮箱</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="邮箱" name="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">密码</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="密码" name="pwd">
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="isRemenber"> 记住我
+                        </label>
+                    </div>
+                    <button class=" btn btn-success btn-block" type="submit" id="submit-login">
+                        登录
+                    </button>
+                    <span id="errorLogin" class="error"></span>
+        
+          </form>
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        没有帐号，<a href="/register">点击创建</a>
+                    </div>
+                </div>
+            </div>
+         </template>
+
+
+    <template id="registerTemp">
+            <div>
+                <form id="registerForm">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">邮箱</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="邮箱" name="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">密码</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="密码" name="pwd">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputNikeName">昵称</label>
+                            <input type="name" class="form-control" id="exampleInputNikeName" placeholder="昵称" name="nikeName">
+                        </div>
+        
+                        <button type="submit" class="btn btn-success btn-block">Submit</button>
+                        <span  class="error"  id="errorRegister"></span>
+                    </form>
+        
+                    <div class="panel panel-default">
+                            <div class="panel-body">
+                             已有帐号? <a href="/login">点击登录</a>
+                            </div>
+                          </div>
+            </div>
+        </template>
+</body>
+
+</html>
+<script src="./lib/vue.js"></script>
+<script src="./lib/vue-router.js"></script>
+<script>
+    let loginTemp = {
+        template: '#loginTemp'
+    }
+
+    let registerTemp = {
+        template: '#registerTemp'
+    }
+    const router = new VueRouter({
+        routes: [{
+            path: '/login',
+            component: loginTemp,
+
+        }, {
+            path: '/register',
+            component: registerTemp,
+
+        }, {
+
+            path: '/',
+            redirect: '/login'
+        }],
+        linkActiveClass: 'a-active'
+
+    })
+    let vm = new Vue({
+        el: '#app',
+        router: router
+
+    })
+</script>

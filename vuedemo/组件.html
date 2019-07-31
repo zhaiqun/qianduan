@@ -1,0 +1,89 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id='app2'>
+        <my-comp2></my-comp2>
+        <my-comp5></my-comp5>
+        <my-com4></my-com4>
+    </div>
+    <div id="app1">
+        <my-comp></my-comp>
+        <my-comp2></my-comp2>
+        <mycom3></mycom3>
+        <!-- <my-comp5>  私有组件</my-comp5> -->
+        <template id="temp1">
+            <div>
+                我是组件4，在html里定义模板，分配id
+            </div>
+        </template>
+        <my-com4></my-com4>
+    </div>
+
+
+    <template id="temp1">
+            <div>
+                我是组件4，在html里定义模板，分配id
+            </div>
+        </template>
+</body>
+
+</html>
+
+<script src="./node_modules/vue/dist/vue.js"></script>
+
+<script>
+    const com1 = Vue.extend({
+        template: '<h1>我是vue组件</h1>'
+    })
+
+    // 组件名称使用驼峰命名规则，使用时大写的字母改为小写，且与前面一个字母用-分割符隔开。如果没有驼峰，直接使用原定义的名
+    Vue.component('myComp', com1)
+
+    Vue.component(
+        'myComp2',
+        Vue.extend({
+            template: '<h2>我是组件2</h2>'
+        })
+
+    )
+
+    Vue.component('mycom3', {
+        template: '<h2>我是组件3</h2>'
+    })
+
+    Vue.component('myCom4', {
+        template: '#temp1'
+    })
+
+    new Vue({
+
+        el: '#app1',
+        data: {
+
+        },
+        methods: {
+
+        },
+
+    })
+
+    new Vue({
+        el: '#app2',
+        components: {
+            'myComp5': {
+
+                template: '<h1>这是私有的组件</h1>'
+            }
+
+        }
+
+    })
+</script>

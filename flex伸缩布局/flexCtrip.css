@@ -47,11 +47,11 @@ li {
 }
 
 header {
-    width: 100%;
     position: fixed;
     left: 0;
     top: 0;
     z-index: 1000;
+    width: 100%;
 }
 
 header a {
@@ -268,28 +268,26 @@ nav .row5:nth-child(2) {
 .sales {
     display: flex;
     flex-direction: column;
-    padding: 10px 5px 15px 5px;
+    padding: 0 5px 15px 5px;
     background: #fff;
     border-bottom: 1px solid #ccc;
 }
 
 .sales .salesHeader {
     flex: 1;
-    /* display: flex;
-    justify-content: space-between; */
-    padding: 15px 0;
     position: relative;
+    padding: 10px 0;
 }
 
 .sales .salesHeader h2 {
     text-indent: -9999px;
-    position: absolute;
-    left: 10px;
-    top: 1px;
 }
 
 .sales .salesHeader h2::before {
     position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
     display: block;
     content: "";
     width: 55px;
@@ -308,7 +306,8 @@ nav .row5:nth-child(2) {
     text-align: center;
     position: absolute;
     right: 20px;
-    top: 1px;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .sales .salesContent {
@@ -459,7 +458,8 @@ nav .row5:nth-child(2) {
     height: 15px;
     position: absolute;
     left: 5px;
-    top: 19px
+    top: 50%;
+    transform: translateY(-50%)
 }
 
 .hot .row:nth-child(1) {
@@ -482,7 +482,8 @@ nav .row5:nth-child(2) {
     text-align: center;
     position: absolute;
     right: 10px;
-    top: 19px
+    top: 50%;
+    transform: translateY(-50%)
 }
 
 .hot .row:nth-child(1) h2 span {
@@ -493,7 +494,8 @@ nav .row5:nth-child(2) {
     background-size: 36px 15px;
     position: absolute;
     left: 100px;
-    top: 19px
+    top: 50%;
+    transform: translateY(-50%)
 }
 
 .hot .row:nth-child(n+2) a {

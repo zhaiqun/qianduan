@@ -1,0 +1,68 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id='app1'>
+        <my-com></my-com>
+        <mycom-temp></mycom-temp>
+        <counter></counter>
+        <hr>
+        <counter></counter>
+        <hr>
+        <counter></counter>
+        <hr>
+    </div>
+
+    <template id="temp1">
+            <div>
+                ass
+            </div>
+        </template>
+</body>
+
+</html>
+
+<script src="./node_modules/vue/dist/vue.js">
+</script>
+
+<script>
+    var count = {}
+    Vue.component('counter', {
+
+        template: '<span  @click="increatment">{{count}}</span>',
+
+        data() {
+            return {
+                count: 0
+            }
+        },
+        methods: {
+            increatment() {
+                this.count++;
+
+            }
+        },
+    })
+    Vue.component('mycomTemp', {
+
+        template: '#temp1'
+    })
+    Vue.component('myCom', {
+        template: '<h1>{{msg}}</h1>',
+        data() {
+            return {
+                msg: '组件里的data'
+            }
+        },
+    })
+    new Vue({
+
+        el: '#app1'
+    })
+</script>

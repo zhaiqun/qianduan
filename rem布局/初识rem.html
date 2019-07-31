@@ -1,0 +1,37 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        html {
+            font-size: 100px;
+        }
+        
+        body {
+            font-size: 50px;
+        }
+        
+        div:nth-child(1) {
+            /* em是基于父元素的大小 */
+            font-size: 2em;
+        }
+        
+        div:nth-child(2) {
+            /* 是基于root元素的大小 */
+            font-size: 2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div>AAA</div>
+    <div>AAA</div>
+
+    流失布局 百分比布局 <br> 伸缩布局 flex布局 <br> 响应式布局 媒体查询<br> 共同点 只能控制宽度的适配，除了图片图片自带高度适配 <br> rem rem布局 宽度和高度都能适配也就是等比缩放 <br> rem布局：通过控制html里字体的大小来控制所有以rem为单位的元素的宽和高
+</body>
+
+</html>

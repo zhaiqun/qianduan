@@ -1,0 +1,50 @@
+<div class="formContainner">
+    <h1>人员登记表</h1>
+    <ul>
+        <li>
+            <label for="">
+                    姓名：
+                        <input [(ngModel)]="peopleInfo.name"   id="nameInput" type="text">
+                </label>
+
+        </li>
+        <li>
+            <label for="">
+                        性别：
+                           <label for=""> <input   [(ngModel)]="peopleInfo.sex" type="radio" value="1"  name="sex"/> 男</label>
+            <label for=""> <input [(ngModel)]="peopleInfo.sex" type="radio" value="0"  name="sex"/> 女</label>
+            </label>
+
+        </li>
+        <li>
+
+            <select name="city" id="" [(ngModel)]="peopleInfo.city">
+
+                <option  [value]="item" *ngFor="let item of peopleInfo.cityList">{{item}}</option>
+
+            </select>
+        </li>
+
+        <li>
+            <label for="">爱好:
+                <label for=""    *ngFor="let item of peopleInfo.hobby"><input [(ngModel)]="item.checked" type="checkbox"/>
+                  {{  item.title}}
+                </label>
+
+            </label>
+
+        </li>
+        <li>
+
+            <textarea name="" id="" resize='none' [(ngModel)]="peopleInfo.mark"></textarea>
+        </li>
+        <li>
+
+            <button (click)='submit()'>提交</button>
+        </li>
+
+    </ul>
+
+
+
+</div>

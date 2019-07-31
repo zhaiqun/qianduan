@@ -1,0 +1,85 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app1">
+        {{msg}}
+
+        <!-- 这里绑定的属性名无论到小写，到子组件里都是小写 -->
+        <component :is="'myCom'" v-bind:parentMsg="msg">
+
+        </component>
+        <component :is="'myCom1'" v-bind:parentmsg="msg" v-on:func='show'>
+
+        </component>
+    </div>
+
+    <template id="temp1">
+        <div>
+            <button  @click='change'>change</button>
+            <button  @click='myclick'>show</button>
+                我是子组件  {{parentmsg}}
+        </div>
+    </template>
+</body>
+
+
+</html>
+
+<script src="./node_modules/vue/dist/vue.js"></script>
+
+<script>
+    Vue.component('myCom', {
+
+        template: '<div> 我是子组件{{parentmsg}}</div>',
+        // 唯一一个属性为数组的，derectives,filters。components都是json对象
+        props: ['parentmsg']
+    })
+    new Vue({
+        el: '#app1',
+        data: {
+            msg: '我是父组件里定义的data'
+        },
+        methods: {
+            show(name) {
+
+                alert(`我${name}想上班了`)
+            }
+        },
+
+        components: {
+
+
+
+            myCom1: {
+                // 子组件的通过ajax请求过来的数据都保存在私有的data中，数据可读可写
+                data() {
+                    return {
+                        title: '子组件私有的',
+                        name: '大头爸爸'
+                    }
+                },
+                template: '#temp1',
+                // props里的数据都是只读的
+                props: ['parentmsg', 'func'],
+                methods: {
+                    change() {
+                        // 这里修改没有用
+                        this.parentmsg = '修改了'
+                    },
+                    myclick() {
+
+                        this.$emit('func', this.name)
+                    }
+                },
+            }
+        }
+
+    })
+</script>

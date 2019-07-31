@@ -1,0 +1,64 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        .thin {
+            font-weight: 100;
+        }
+        
+        .italic {
+            font-style: italic;
+        }
+        
+        .red {
+            color: rebeccapurple;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div1">
+        <h5 :class="['thin', 'red',flag?'italic':'']">我是小败</h5>
+        <h5 :class="['thin', 'red',{'italic':flag}]">我是小败</h5>
+        <h5 :class="{thin:false, red:true,italic:true}">我是小败</h5>
+        <h5 :class="classObj">我是小败</h5>
+        <h1 :style="{color:'red'}">zxiaoq</h1>
+        <h1 :style="[sty1,sty2,sty3]">zxiaoq</h1>
+    </div>
+</body>
+
+</html>
+
+<script src="./node_modules/vue/dist/vue.js"></script>
+
+<script>
+    let vm = new Vue({
+        el: "#div1",
+        data: {
+            flag: true,
+            classObj: {
+                thin: true,
+                red: false,
+                italic: true
+            },
+            sty1: {
+                'font-size': '12px'
+            },
+            sty2: {
+                'font-style': 'italic'
+            },
+            sty3: {
+                color: 'green'
+            }
+        },
+        methods: {
+
+        },
+
+    })
+</script>

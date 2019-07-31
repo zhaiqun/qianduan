@@ -1,0 +1,47 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+
+        <!-- 用render渲染，这里会被覆盖掉 -->
+        112
+        <!-- <component :is="'mycom'"></component> -->
+    </div>
+</body>
+<template id="temp1">
+    <div  >
+        组件
+    </div>
+</template>
+
+</html>
+
+<script src="./node_modules/vue/dist/vue.js"></script>
+
+<script>
+    var tmp = {
+        template: '#temp1'
+    }
+    let vm = new Vue({
+        el: "#app",
+        methods: {
+
+        },
+        data: {
+
+        },
+        // components: {
+        //     mycom: tmp
+        // }
+        render: c =>
+            c(tmp)
+
+    })
+</script>

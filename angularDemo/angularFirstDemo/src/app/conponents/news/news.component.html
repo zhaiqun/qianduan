@@ -1,0 +1,66 @@
+<p>news works!</p>
+{{title}}
+
+<ul>
+    <li data-title='{{item.title}}' *ngFor="let item of newsList">
+        <h4>{{item.title}}</h4>
+        <p>{{item.content}}</p>
+    </li>
+
+</ul>
+
+
+<ul>
+
+    <li *ngFor="let item of cars;let key=index" [ngClass]="{'orange': key==0,'red':key==1}">
+
+        <h4>{{item.cate}}</h4>
+
+        <ol>
+            <li *ngFor="let car of item.list">
+                <p>{{car}}</p>
+            </li>
+        </ol>
+    </li>
+</ul>
+
+<div *ngIf="flag">
+
+    哈哈我是true
+</div>
+
+
+<div *ngIf="!flag">
+
+    flag为false
+</div>
+
+<div [ngSwitch]="orderStatus">
+    <div *ngSwitchCase="1"><span [ngClass]="{'red': flag,'orange':!flag}"> 已支付</span> </div>
+    <div *ngSwitchCase="0">待支付</div>
+    <div *ngSwitchCase="-1">已取消</div>
+</div>
+<span [ngClass]="{'red': flag,'orange':!flag}"> ngclass</span>
+<p>
+    <span [ngStyle]="{'color': 'green'}">ngtyle</span>
+
+    <span [ngStyle]="{'color': attr}">
+        ngtyle2
+        </span>
+
+
+</p>
+
+<p>管道{{datatime| date:'yyyy-MM-dd HH:mm:ss'}}</p>
+
+<button (click)='run($event)'>点我呀</button>
+<button (click)='getData()'>{{title}}</button>
+<button (click)='setData()'>{{title}}</button>
+
+<input type="text" (keydown)='keyDown($event)' placeholder="keydown">
+
+<input type="text" (keyup)='keyUp($event)' placeholder="keyup">
+
+<input type="text" [(ngModel)]="keywords" placeholder="ngModel"> {{keywords}}
+
+<button (click)='setKeyWords()'>setKeyWords</button>

@@ -1,0 +1,63 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="div1">
+        <input type="text" v-model="num1" placeholder="0">
+        <select name="" id="" v-model="opt">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+        </select>
+        <input type="text" v-model="num2" placeholder="0">
+        <input type="button" value="=" @click='cla'>
+        <input type="text" readonly="readonly" v-bind:value="res" />
+    </div>
+</body>
+
+<script src="./node_modules/vue/dist/vue.js"></script>
+
+<script>
+    let vm = new Vue({
+        el: '#div1',
+
+        data: {
+            num1: null,
+            num2: null,
+            res: 0,
+            opt: "+"
+        },
+        methods: {
+            cla() {
+                switch (this.opt) {
+                    case "+":
+                        this.res = Number(this.num1) + Number(this.num2)
+                        break;
+                    case "-":
+                        this.res = Number(this.num1) - Number(this.num2)
+                        break;
+                    case "*":
+                        this.res = Number(this.num1) * Number(this.num2)
+                        break;
+                    default:
+                        this.res = Number(this.num1) / Number(this.num2)
+
+                        break;
+                }
+
+            }
+        },
+
+
+    })
+</script>
+
+</html>

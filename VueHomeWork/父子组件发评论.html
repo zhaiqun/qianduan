@@ -1,0 +1,120 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./lib/bootstarp/css/bootstrap.css">
+</head>
+
+<body>
+    <div id="app">
+
+        <component :is="'exPressComment'" v-on:loadcomments='loadComments'>
+
+        </component>
+
+
+        <div class="media" v-for="(item, index) in commentList" :key="index">
+            <a class="pull-left" href="#">
+                <img class="media-object" src="#" alt="Image">
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading">{{item.content}}</h4>
+                <p>{{item.author}}</p>
+            </div>
+
+            <div v-if="commentList.length==0">没有评论数据</div>
+        </div>
+
+
+    </div>
+</body>
+<template id="commentTemp">
+    <div >
+        
+        <div class="panel panel-primary">
+              <div class="panel-heading ">
+                    <h3 class="panel-title">添加评论</h3>
+              </div>
+              <div class="panel-body">
+
+                    <div class="row">
+                    <label for="">内容：
+                        
+                      
+                  
+                
+                <textarea name="" v-model="content"  id="input" class="form-control" rows="3" required="required"></textarea>
+                
+                  
+                      
+                        
+                    </label>
+
+                   </div>
+                    <label for="">评论人：
+                        
+                            <input type="text" v-model="author"   name="" id="input" class="form-control" value="" required="required" pattern="" title="">
+                            
+                        </label>
+
+                        
+                        <button type="button" class="btn btn-primary"  @click='express'  >发表</button>
+                        
+              </div>
+        </div>
+        
+    </div>
+</template>
+
+</html>
+<script src="./lib//vue.js"></script>
+<script>
+    let vm = new Vue({
+        el: '#app',
+        data: {
+            commentList: [],
+            i: 0
+        },
+        created() {
+            this.loadComments()
+        },
+        beforeUpdate() {
+            this.loadComments()
+        },
+        methods: {
+            loadComments() {
+                console.log(this.i++)
+                var str = localStorage.getItem('cms')
+                this.commentList = JSON.parse(str || "[]");
+            }
+        },
+        components: {
+            'exPressComment': {
+                template: '#commentTemp',
+                data() {
+                    return {
+                        content: '',
+                        author: '',
+                    }
+                },
+                methods: {
+                    express() {
+                        var item = {
+                            content: this.content,
+                            author: this.author
+                        }
+                        var list = JSON.parse(localStorage.getItem('cms') || '[]')
+                        list.unshift(item)
+                        localStorage.setItem('cms', JSON.stringify(list))
+                        this.$emit('loadcomments')
+                    }
+                },
+            }
+
+        }
+
+    })
+</script>

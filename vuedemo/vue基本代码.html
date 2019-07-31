@@ -1,0 +1,97 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id='div1'>
+
+        <p v-cloak>{{msg}}</p>
+        <h4 v-text="msg"></h4>
+        <div v-html="html"></div>
+        <input type="button" value="按钮" v-bind:title="title+'666'" v-on:click='pop'>
+
+        <input type="button" value="躁起来" v-on:click='run'>
+
+        <input type="button" value="quiet" v-on:click="stop">
+        <p>{{runStr}}</p>
+
+        <!-- 冒泡事件 -->
+        <!-- <div @click="divClick">
+            <input type="button" value="冒泡演示" @click.stop="btnClick">
+        </div> -->
+        <!-- 捕获事件 -->
+        <!-- <div @click.capture="divClick">
+            <input type="button" value="冒泡演示" @click="btnClick">
+        </div> -->
+        <!-- self事件 -->
+        <div @click.self="divClick">
+            <input type="button" value="冒泡演示" @click="btnClick">
+        </div>
+        <a href="http://www.baidu.com" @click.prevent="linkClick">阻止默认事件</a>
+
+        <a href="http://www.baidu.com" @click.prevent.once="linkClick">第一次点击阻止默认事件</a>
+
+        <input type="text" v-bind:value="age">
+
+        <!-- v-model双向绑定，只能运用在表单元素中  radio text address  email -->
+        <input type="text" v-model="age">
+    </div>
+</body>
+
+<script src=" ./node_modules/vue/dist/vue.js "></script>
+
+<script>
+    var vm = new Vue({
+        el: "#div1 ",
+        data: {
+            age: "18 ",
+            msg: "zq ",
+            html: '<del> hah</del>',
+            title: '点我呀',
+            runStr: '燥起来呀，哈哈哈',
+            intervalId: null
+        },
+        methods: {
+            linkClick() {
+                alert('hibaidu')
+            },
+            divClick() {
+                alert('我是div我被点击了')
+            },
+            btnClick() {
+                alert('我是btn 我被点到了')
+            },
+            pop: () => {
+
+                alert('hi,zq')
+            },
+            run() {
+                if (this.intervalId) {
+                    this.intervalId = null;
+                }
+                let that = this;
+                this.intervalId = setInterval(function() {
+                    let str1 = that.runStr
+                    let resultStr = str1.substring(0, 1)
+                    that.runStr = str1.substring(1) + resultStr;
+                }, 500);
+
+
+            },
+
+            stop() {
+                clearInterval(this.intervalId)
+                    // this.intervalId = null;
+            }
+
+        },
+
+    })
+</script>
+
+</html>

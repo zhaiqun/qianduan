@@ -1,0 +1,76 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+
+        <fater-com></fater-com>
+    </div>
+    <template id="faterCom">
+        <div>
+            父组件
+            <son></son>
+            <my-bcom></my-bcom>
+        </div>
+    </template>
+    <template id="son">
+            <div>
+               子组件
+            </div>
+        </template>
+
+    <template id="bcom">
+        <div>
+            <a @click.prevent='showmsg'>点我呀</a>
+        </div>
+        </template>
+</body>
+
+</html>
+
+<script src="./lib/vue.js"></script>
+
+<script>
+    Vue.component('myBcom', {
+        template: '#bcom',
+        data() {
+            return {
+                msg: '我是一个全局组件data'
+            }
+        },
+        methods: {
+            showmsg() {
+
+                alert(this.msg)
+            }
+        }
+    })
+    let vm = new Vue({
+        el: '#app',
+        components: {
+            'faterCom': {
+                template: '#faterCom',
+                components: {
+                    'son': {
+                        template: '#son'
+                    }
+                }
+            }
+
+        },
+        data: {
+
+
+        },
+        methods: {
+
+        },
+
+    })
+</script>

@@ -1,0 +1,105 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+
+        <!-- <component :is="'father'" :commentdata='commentdata'>
+
+
+        </component> -->
+
+        <father :commentdata='commentdata'>
+
+        </father>
+        <!-- <component :is="'father'">
+
+
+        </component> -->
+    </div>
+
+    <template id="father">
+    <div>
+        <h4>评论区域</h4>
+
+        <son  :commentData='commentdata'></son>
+        <!-- <component :is="'son'" :commentData='commentdata'></component> -->
+    </div>
+        </template>
+
+    <template id="son">
+        <div  style='border:  1px  sold  red'>
+            <ul>
+                <li  v-for="(item, index) in commentdata" :key="index">
+                    <h4>{{item.content}}</h4>
+                    <p>{{item.author}}</p>
+                </li>
+            </ul>
+        </div>
+    </template>
+</body>
+
+</html>
+<script src="./lib/vue.js"></script>
+<script>
+    let vm = new Vue({
+        el: '#app',
+        data: {
+            commentdata: [{
+                id: 1,
+                content: '好棒',
+                author: 'tony'
+            }, {
+                id: 2,
+                content: 'good job',
+                author: 'jack'
+            }, {
+                id: 3,
+                content: 'hahah',
+                author: 'monica'
+            }]
+        },
+        methods: {
+
+        },
+
+        components: {
+            'father': {
+                template: '#father',
+                props: ['commentdata'],
+                data() {
+                    return {
+                        // commentdata: [{
+                        //     id: 1,
+                        //     content: '好棒',
+                        //     author: 'tony'
+                        // }, {
+                        //     id: 2,
+                        //     content: 'good job',
+                        //     author: 'jack'
+                        // }, {
+                        //     id: 3,
+                        //     content: 'hahah',
+                        //     author: 'monica'
+                        // }]
+                    }
+                },
+                components: {
+
+                    'son': {
+                        template: '#son',
+                        props: ['commentdata'],
+                    }
+                }
+            }
+
+        }
+
+    })
+</script>

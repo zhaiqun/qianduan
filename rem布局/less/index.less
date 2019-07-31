@@ -1,0 +1,185 @@
+
+@import "var";
+
+@import  'mixins';
+
+@import  'adapter';
+
+@import 'reset.less';
+
+.sn_containner
+{
+    // padding-top: 88rem/@baseFontSize;
+    .sn_topbar
+    {
+        height: 88rem/@baseFontSize;
+        position: fixed;
+        left: 0;
+        top:0;
+        width: 100%;
+        z-index: 1000;
+    .sn_topbar_containner{
+        min-width: 320px;
+        max-width: 750px;
+        width: 100%;
+        margin: 0 auto;
+        position: relative;
+        padding: 0 88rem/@baseFontSize;
+        
+    }
+    
+    a{
+        position: absolute;
+        width: 88rem/@baseFontSize;
+        height: 88rem/@baseFontSize;
+        top:0;
+        &.icon_catagory{
+            background: url('../images/icon_category.png')  no-repeat  center/ 44rem/@baseFontSize  70rem/@baseFontSize;      
+            left: 0;
+           
+        }
+
+        &.login{
+            font-size:22rem/@baseFontSize;
+            right: 0;
+            text-align: center;
+            color: #fff;
+            line-height:  88rem/@baseFontSize
+        }
+    }
+    form{
+        height: 100%;
+        line-height: 88rem/@baseFontSize;
+ 
+        position: relative;
+        input{
+            width: 100%;
+            border-radius:  30rem/@baseFontSize;
+            height: 60rem/@baseFontSize;
+            margin-top: 15rem/@baseFontSize;
+            padding-left: 50rem/@baseFontSize;
+             background-color: rgb(255,255,255,0.3)
+        }
+
+        span{
+            background: url('../images/icon_search.png')  no-repeat center/ 36rem/@baseFontSize 36rem/@baseFontSize;
+            position: absolute;
+            transform: translateY(-50%);
+            width: 36rem/@baseFontSize;
+            height: 36rem/@baseFontSize;
+            top:50%;
+            left: 10rem/@baseFontSize
+       
+        }
+    }
+ 
+    }
+
+    .sn_banner{
+  
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+    ul{
+        width: 1000%;
+        li{
+            float: left;
+            width: 10%;
+        }
+        a{
+            display: block;
+            width: 100%;
+            img{
+                width: 100%;
+                display: block;
+            }
+        }
+    }
+    ol{
+
+        position: absolute;
+        bottom: 20rem/@baseFontSize;
+        right: 50%;
+        transform: translateX(-50%);
+        li{
+            float: left;
+            width: 12rem/@baseFontSize;
+            height:12rem/@baseFontSize;
+            border-radius: 50%;
+            background-color: #fff;
+            margin-left: 8rem/@baseFontSize;
+            box-shadow: 1px 1px 1px #ccc;
+        }
+    }
+    }
+
+    .sn_nav{
+     
+        padding: 15rem/@baseFontSize 0;
+        div{
+      
+            display: flex; 
+            &:nth-child(1){
+
+                margin-bottom:  15rem/@baseFontSize;
+            }
+            a{
+            display: block;
+            flex: 1;
+            text-align: center;
+            img{
+                width: 80rem/@baseFontSize;
+                vertical-align: top;
+            }
+            p{
+                font-size: 20rem/@baseFontSize;
+                font-weight: bolder;
+                color: #666;
+                line-height: 36rem/@baseFontSize;
+
+            }
+        }
+        }
+       
+    }
+
+    .sn_footer{
+      
+        position: fixed;
+        width: 100%;
+        bottom: 0;
+        left: 0;
+        .sn_footer_containner{
+            height: 100rem/@baseFontSize;
+            min-width: 320px;
+            max-width: 750px;
+            width: 100%;
+            margin: 0 auto;
+            display: flex;
+            border-top: 1px solid  #ccc;
+        }
+        a{
+            flex: 1;
+            display: flex;
+            text-align: center;
+           flex-direction: column;
+           justify-content: center;
+            span{
+
+                // display: block;
+              
+                &:nth-child(1){
+                    font-size: 24rem/@baseFontSize;
+                    margin-bottom: 5rem/@baseFontSize
+                }
+                &:nth-child(2){
+                    font-size: 16rem/@baseFontSize;
+                }
+            }
+
+        
+        }
+    }
+}
+
+

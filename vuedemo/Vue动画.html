@@ -1,0 +1,217 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="lib/animate/css/animate.css">
+    <link rel="stylesheet" href="lib/bootstarp/css/bootstrap.css">
+    <style>
+        .ball {
+            background-color: red;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+        }
+        
+        span {
+            transition: all 1s linear;
+            display: inline-block;
+        }
+        
+        .v-enter,
+        .v-leave-to {
+            opacity: 0;
+            transform: translateY(100px)
+        }
+        
+        .v-enter-active,
+        .v-leave-active {
+            transition: all 0.3s linear;
+        }
+        
+        .v-move {
+            transition: all 0.6s linear;
+        }
+        
+        .v-leave-active {
+            position: absolute
+        }
+        
+        .my-enter,
+        .my-leave-to {
+            opacity: 0;
+            transform: translateX(80px);
+            background-color: pink
+        }
+        
+        .my-enter-active,
+        .my-leave-active {
+            /* transform: translateX(100px); */
+            transition: all 1s linear;
+        }
+        
+        .test li:hover {
+            background-color: pink;
+            transition: all 0.5s linear;
+        }
+    </style>
+</head>
+
+<body>
+    <div id='app1'>
+        <button @click='ballShow=true'>加入购物车</button>
+        <transition v-bind:css="false" @before-enter='beforeEnter' @enter='enter' @after-enter='afterEnter'>
+
+
+            <div :class='ball' v-if="ballShow">
+
+
+            </div>
+        </transition>
+
+
+        <p>默认动画</p>
+        <button @click='flag=!flag'>toggle</button> <button @click='animate'>animate</button><br>
+        <transition>
+            <span :style='[style1]' v-if='flag'>你好呀</span>
+        </transition>
+        <br>
+        <p>自定义动画名称</p>
+        <button @click='btnShowFlag=!btnShowFlag'>toggle2</button>
+        <br>
+        <transition name="my">
+            <input v-if='btnShowFlag' type="button" value="点我呀">
+        </transition>
+
+        <p>应用animat.css</p>
+
+        <transition enter-active-class="bounceIn" leave-active-class="bounceOut" :duration="200">
+            <input v-if='btnShowFlag' class="animated" type="button" value="点我呀">
+        </transition>
+
+        <p>应用animat.css</p>
+
+        <transition enter-active-class="bounceIn" leave-active-class="bounceOut" :duration="{enter:6000,leave:8000}">
+            <input v-if='btnShowFlag' class="animated" type="button" value="点我呀">
+        </transition>
+
+
+
+        <label for="">name
+
+            
+                <input type="text" name="" id="input" class="form-control" v-model='name' required="required" pattern="" title="">
+                
+            </label>
+
+        <button @click='add'>add</button>
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <transition-group>
+                    <tr v-for="(item, index) in list" :key="index">
+                        <td>{{index}}</td>
+                        <td>{{item}}</td>
+                    </tr>
+                </transition-group>
+
+            </tbody>
+        </table>
+
+
+        <transition-group appear tag='ul'>
+            <li @click='del(item)' v-for="(item, index) in list" :key="index">{{item}}</li>
+
+        </transition-group>
+
+    </div>
+
+    <ul class="test">
+        <li>1</li>
+    </ul>
+
+</html>
+<script src="./node_modules/vue/dist/vue.js"></script>
+
+<script>
+    new Vue({
+        el: '#app1',
+        data: {
+            name: '',
+            ballShow: false,
+            ball: 'ball',
+            btnShowFlag: true,
+            flag: true,
+            style1: {
+                'background-color': 'red'
+
+            },
+            list: ['zq', 'tony']
+
+        },
+        created() {
+            // this.toggleBtn()
+        },
+        methods: {
+            del(item) {
+                var index = this.list.findIndex((el, i) => {
+                    if (item == el) {
+                        return i;
+                    }
+
+                })
+                this.list.splice(index, 1)
+            },
+            add() {
+
+                this.list.push(this.name)
+                this.name = ''
+            },
+            beforeEnter(el) {
+
+                el.style.transform = 'translate(0px,0px)'
+
+            },
+            enter(el, done) {
+                el.offsetTop
+                el.style.transform = 'translate(300px,400px)'
+                el.style.transition = 'all 2s linear'
+                el.style.width = "100px"
+                el.style.height = "100px"
+                console.log('enter执行')
+                done();
+            },
+            afterEnter(el) {
+                // el.style.transition = 'all 2s linear'
+                console.log('afterEnter执行')
+                    // el.style.width = "50px"
+                    // el.style.height = "50px"
+                    // el.style.transform = 'translate(600px,400px)'
+                    // el.style.transition = 'all 2s linear'
+                this.ballShow = !this.ballShow
+            },
+            animate() {
+
+                this.style1 = {
+                    'background-color': 'yellow'
+                }
+            },
+            toggleBtn() {
+                setInterval(() => {
+                    this.btnShowFlag = !this.btnShowFlag
+                }, 2000);
+
+            }
+        },
+
+
+
+    })
+</script>

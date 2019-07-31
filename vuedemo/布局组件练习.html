@@ -1,0 +1,97 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .header {
+            height: 40px;
+            background-color: yellow
+        }
+        
+        .main {
+            display: flex
+        }
+        
+        .leftC {
+            background-color: green;
+            flex: 2
+        }
+        
+        .rightC {
+            background-color: #ccc;
+            flex: 8
+        }
+    </style>
+
+    <script src="./node_modules/vue/dist/vue.js"></script>
+    <script src="./node_modules/vue-router/dist/vue-router.js"></script>
+
+
+</head>
+
+<body>
+
+
+
+    <div id="app">
+        <router-view></router-view>
+
+        <div class="main">
+            <router-view name='leftC'></router-view>
+            <router-view name='rightC'></router-view>
+        </div>
+    </div>
+    <template id="header">
+            <div  class="header">
+                
+            </div>
+        </template>
+
+    <template id="leftC">
+                <div class="leftC">
+                    左边
+                </div>
+            </template>
+    <template id="rightC">
+                    <div  class="rightC">
+                        右边
+                    </div>
+                </template>
+</body>
+
+</html>
+
+<script>
+    var header = {
+        template: '#header'
+    }
+    var leftC = {
+        template: '#leftC'
+    }
+    var rightC = {
+        template: '#rightC'
+    }
+    const router = new VueRouter({
+        routes: [{
+            path: '/',
+            components: {
+                default: header,
+                leftC,
+                rightC
+            }
+        }]
+    })
+    new Vue({
+        el: '#app',
+        data: {
+
+        },
+        methods: {
+
+        },
+        router,
+    })
+</script>

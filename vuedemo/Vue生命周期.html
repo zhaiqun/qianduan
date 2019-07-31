@@ -1,0 +1,76 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <p>{{msg}}</p>
+        <input type="button" value="修改data数据" @click='update'>
+    </div>
+
+</body>
+
+</html>
+
+<script src="./node_modules/vue/dist/vue.js"></script>
+
+<script>
+    let vm = new Vue({
+        el: '#app',
+        beforeCreate() {
+            console.log('我是vue声明周期里第一个执行的函数')
+                // data和methos都没初始化
+        },
+        created() {
+            console.log('我是vue声明周期里第2个执行的函数')
+            console.log(this.msg + '\n' + this.show)
+            this.show();
+        },
+        beforeMount() {
+            console.log('我是vue声明周期里第3个执行的函数.末班已经编译完成，但未渲染')
+            console.log(document.querySelector('p').innerHTML)
+        },
+        mounted() {
+            console.log('我是vue声明周期里第4个执行的函数.已经未渲染')
+            console.log(document.querySelector('p').innerHTML)
+        },
+        beforeUpdate() {
+            // 组件运行阶段的函数
+
+            console.log(this.msg + '=======' + document.querySelector('p').innerHTML)
+            console.log('界面还没更新，数据更新了')
+
+        },
+
+        updated() {
+
+            console.log(this.msg + '=======' + document.querySelector('p').innerHTML)
+            console.log('界面已经更新，数据更新了')
+
+        },
+        beforeDestroy() {
+            // data和methods都可以用，预准备销毁
+        },
+        destroyed() {
+            // data和methods不可用了，组件销毁掉了
+        },
+        data: {
+            msg: 'old'
+        },
+        methods: {
+            show() {
+                console.log('我是methods里的show方法')
+            },
+            update() {
+
+                this.msg = 'new'
+            }
+        },
+
+    })
+</script>

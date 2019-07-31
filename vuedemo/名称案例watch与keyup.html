@@ -1,0 +1,54 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="app">
+        <input type="text" @keyup='get' v-model="fisrtName" class="form-control" value="" required="required" pattern="" title="">
+        <input type="text" @keyup='get' v-model="lastName" class="form-control" value="" required="required" pattern="" title="">
+
+        <input type="text" readonly="readonly" v-bind:value='result'>
+
+        <p></p>
+
+        <input type="text" v-model="fisrtName1" class="form-control" value="" required="required" pattern="" title="">
+        <input type="text" v-model="lastName1" class="form-control" value="" required="required" pattern="" title="">
+
+        <input type="text" readonly="readonly" v-bind:value='result'>
+    </div>
+</body>
+
+</html>
+<script src="./node_modules/vue/dist/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            fisrtName: '',
+            lastName: '',
+            result: '',
+            fisrtName1: '',
+            lastName1: ''
+        },
+        methods: {
+            get() {
+                this.result = this.fisrtName + this.lastName
+            }
+        },
+
+        // watch监测，每个属性值都得注册方法，但是wathch可用于检测非dom元素里的值很方便。非dom元素的值无法通过keyup这种事件来检测
+        watch: {
+            fisrtName1: function(old, nowVal) {
+                console.log(`${old}=======${nowVal}`)
+                this.result = this.fisrtName1 + this.lastName
+
+            }
+        },
+    })
+</script>

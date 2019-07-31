@@ -1,0 +1,18 @@
+.cmtContainner {
+    color: red;
+    font-style: italic;
+}
+
+
+/* 默认就是：local()包括起来，会被模块化 */
+
+.localBg {
+    background-color: grey;
+}
+
+
+/* 被：:global包括起来的不会被模块化 */
+
+:global(.test) {
+    color: green;
+}

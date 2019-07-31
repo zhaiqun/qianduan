@@ -1,0 +1,102 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./lib/bootstarp/css/bootstrap.css">
+</head>
+
+<body>
+
+
+
+    <div id="app1">
+
+        <component :is="'myCom'" v-on:func='loadComments'></component>
+        <ul class="list-group">
+            <li v-for="(item, index) in comments" :key="index" class="list-group-item">
+                <span class="badge">{{item.name}}</span> {{item.comment}}
+            </li>
+
+        </ul>
+    </div>
+    <template id='temp1'>
+     <div>
+            <form>
+            <div class="form-group">
+                <label for="name"> 评论人：
+                </label>
+                <input type="text" v-model='name'  name=""  class="form-control" value="" id="name" required="required" pattern="" title="">
+            </div>
+            <div class="form-group">
+                <label for="content"> 评论：  </label>
+                <input type="text" v-model='content' name="" id="content"  class="form-control" value="" required="required" pattern="" title="">
+               
+            </div>  
+                <button type="button"  @click='express' class="btn btn-large btn-block btn-primary">发表</button>
+                
+            </div>
+            
+        </form>
+    </template>
+
+</body>
+
+</html>
+<script src=" ./node_modules/vue/dist/vue.js "></script>
+<script>
+    var temp = Vue.component('myCom', {
+
+
+        template: '#temp1',
+        data() {
+            return {
+                name: '',
+                content: ''
+            }
+        },
+        methods: {
+            express() {
+                var item = {
+                    name: this.name,
+                    comment: this.content
+                }
+
+                var list = JSON.parse(localStorage.getItem('cmts') || '[]')
+
+                list.unshift(item);
+                localStorage.setItem('cmts', JSON.stringify(list))
+                this.name = this.content = '';
+
+                this.$emit('func')
+            }
+        },
+    })
+    new Vue({
+
+        el: '#app1',
+        data: {
+            comments: [{
+                name: '小李',
+                comment: '哈哈我是天下第一'
+            }, {
+                name: '小刘',
+                comment: '哈哈我是天下第6'
+            }]
+        },
+        created() {
+            this.loadComments()
+        },
+        beforeUpdate() {
+            this.loadComments()
+        },
+        methods: {
+            loadComments() {
+
+                this.comments = JSON.parse(localStorage.getItem('cmts') || '[]')
+            }
+        },
+    })
+</script>

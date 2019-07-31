@@ -1,0 +1,120 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        .router-link-active {
+            background-color: red;
+            font-size: 14px;
+            font-weight: bolder
+        }
+        
+        .myactive {
+            background-color: green;
+            font-size: 16px;
+            font-weight: bolder
+        }
+        
+        .v-enter,
+        .v-leave-to {
+            opacity: 0;
+            transform: translateX(30px)
+        }
+        
+        .v-enter-active,
+        .v-leave-active {
+            transition: all 1s linear
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div1">
+
+        <router-link to="/login?id=10" tag="span">登录</router-link>
+        <router-link to="/register/zq" tag="button">注册</router-link>
+        <p></p>
+        <a href="#/login">登录</a>
+        <a href="#/register">注册</a>
+        <!-- <component :is="'login'"></component> -->
+
+        <!-- 占位符，路由规则匹配到的组件都会在这里 -->
+
+        <transition mode='out-in'>
+            <router-view></router-view>
+        </transition>
+
+
+    </div>
+</body>
+<template id="temp1">
+    <div>
+        <h4>登录{{$route.query.id}}</h4>
+    </div>
+</template>
+
+<template id="temp2">
+        <div>
+            <h4>注册{{$route.params.name}}</h4>
+        </div>
+    </template>
+
+</html>
+
+<script src="./node_modules/vue/dist/vue.js"></script>
+<script src="./node_modules/vue-router/dist/vue-router.js"></script>
+<script>
+    var loginTemp = {
+        template: '#temp1',
+        created() {
+            console.log(this.$route)
+        },
+    }
+
+    var registerTemp = {
+        template: "#temp2",
+        created() {
+
+            console.log(this.$route)
+        }
+    }
+    var routeObj = new VueRouter({
+        routes: [{
+            path: '/', //这里的redirect客户端修改hash值
+            redirect: '/login'
+
+        }, {
+            path: '/login',
+            // 这里必须是组件的模板对象的引用，而是不是组件的名称
+            component: loginTemp
+        }, {
+
+            path: '/register/:name',
+
+            // 这里必须是组件的模板对象的引用，而是不是组件的名称
+            component: registerTemp
+        }],
+        linkActiveClass: 'myactive'
+    })
+    const vm = new Vue({
+        el: '#div1',
+        data: {},
+        methods: {
+
+        },
+        router: routeObj, //将路由规则对象注册到vue实例中
+        // components: {
+
+        //     login: loginTemp
+        // },
+        // components: {
+
+        //     login: loginTemp
+        // }
+
+    })
+</script>

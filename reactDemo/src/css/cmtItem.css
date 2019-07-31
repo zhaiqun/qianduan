@@ -1,0 +1,9 @@
+.cmtItemContainner {
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+
+.cmtItemContainner p:nth-of-type(2) {
+    display: flex;
+    justify-content: space-between;
+}

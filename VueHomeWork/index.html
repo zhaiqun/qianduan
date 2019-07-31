@@ -1,0 +1,192 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./lib/bootstarp/css/bootstrap.css">
+    <style>
+        ul {
+            list-style: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+
+
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">个人信息</h3>
+            </div>
+            <div class="panel-body">
+                <form action="" method="POST" class="form-inline" role="form">
+
+                    <div class="form-group">
+
+                        <label for="">
+                            id:
+                            <input  ref='idInput' type="number" name="" id="inputId" class="form-control" value=""  required="required" title=""  v-model="id">
+                            
+                        </label>
+                        <label for="nameInput">  
+                    用户名:  
+                </label>
+                        <input type="text" v-model="name" class="form-control" id="nameInput" placeholder="name" />
+
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ageInput">  
+                    年龄:  
+                </label>
+                        <input type="text" @keydown.enter='add' v-model="age" class="form-control" name="" id="ageInput" placeholder="age">
+
+                    </div>
+
+                    <button type="button" @click.prevent='add' class="btn btn-primary">增加</button>
+                    <label for="">    搜索的关键词：
+                <input type="text"  v-model='keywords' class="form-control" placeholder="关键词">
+            </label>
+
+
+                </form>
+            </div>
+
+        </div>
+
+
+
+
+        <div class="table-responsive">
+            <table class="table table-hover table-striped  table-bordered">
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>用户名</th>
+                        <th>年龄</th>
+                        <th>创建时间</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr v-for="(item, index) in    filterPersonInfo " :key="item.id">
+
+                        <td> {{item.id}}</td>
+                        <td> {{item.name}}</td>
+                        <td> {{item.age}}</td>
+                        <td>{{item.creatTime|dateFormatter}}</td>
+                        <td> <a @click.prevent='remove(item.id)' href="">删除</a></td>
+                    </tr>
+
+                    <tr v-if='filterPersonInfo.length==0'>
+                        没有用户
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+    </div>
+</body>
+
+</html>
+
+<script src='./lib/vue.js'></script>
+
+<script>
+    let vm = new Vue({
+        el: "#app",
+
+        data: {
+            keywords: '',
+            age: null,
+            name: '',
+            id: null,
+            personInfo: [{
+                id: 1,
+                name: 'tony',
+                age: 29,
+                creatTime: new Date()
+            }, {
+                id: 2,
+                name: 'zq',
+                age: 29,
+                creatTime: new Date()
+            }]
+
+
+        },
+
+        mounted() {
+
+            console.dir(this.$refs.idInput)
+            this.$refs.idInput.focus()
+        },
+        methods: {
+            add() {
+                var person = {
+                    id: this.id,
+                    age: this.age,
+                    name: this.name,
+                    creatTime: new Date()
+                }
+                this.personInfo.push(person)
+            },
+
+            remove(id) {
+                let index = this.personInfo.findIndex(p => {
+                        if (p.id === id) {
+                            return true;
+                        }
+                    }
+
+                )
+                this.personInfo.splice(index, 1)
+
+            },
+            search() {
+                return this.personInfo.filter(c => {
+                    if (c.name.includes(this.keywords)) {
+                        return c;
+                    }
+                })
+
+            }
+        },
+        computed: {
+            filterPersonInfo() {
+
+                return this.personInfo.filter(c => {
+
+                    if (c.name.includes(this.keywords)) {
+                        return c
+                    }
+                })
+            }
+        },
+        filters: {
+            dateFormatter: (dateStr, pattern = '') => {
+                var dt = new Date(dateStr)
+                var year = dt.getFullYear()
+                var month = dt.getMonth() + 1
+                var day = dt.getDate()
+                var time = dt.getHours().toString().padStart(2, '0')
+                var minutes = dt.getMinutes().toString().padStart(2, '0')
+                var seconds = dt.getSeconds().toString().padStart(2, '0')
+                var resultDate = `${year}-${month}-${day}`
+                if (pattern.toLocaleUpperCase() == 'YYYY-MM-DD') {
+                    return resultDate
+                }
+
+                return `${resultDate} ${time}:${minutes}:${seconds}`
+
+            }
+
+        }
+
+    })
+</script>

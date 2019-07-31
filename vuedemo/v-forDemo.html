@@ -1,0 +1,88 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="div1">
+        <p v-for="(item, index) in list" :key="index">索引值{{index}}，值为{{item}}</p>
+
+        <p v-for="(item, index) in objList" :key="index">
+            id为{{item.id}}===== name为{{item.name}}==== age为{{item.age}}
+        </p>
+
+        <p v-for="(val, key,i) in user">
+
+            {{key}}===={{val}}========={{i}}
+        </p>
+
+        <ul>
+
+            <li v-for="count in 3">{{count}}</li>
+        </ul>
+        <label for="people">id：</label>
+        <input type="text" id='people' v-model="id">
+        <label for="name">名字：</label>
+        <input type="text" id="name" v-model="name">
+        <input type="button" value="add" v-on:click='add'>
+        <ul>
+            <li v-for="(item, index) in star" :key="item.id">
+                {{item.id}} <input type="checkbox" name="">{{item.name}}
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>
+
+<script src="./node_modules/vue/dist/vue.js"></script>
+<script>
+    let vm = new Vue({
+        el: '#div1',
+        data: {
+            id: null,
+            name: "",
+            list: [1, 2, 3, 4, 5, 9],
+            objList: [{
+                name: 'zq',
+                id: 1,
+                age: 18
+            }, {
+                name: 'hxj',
+                age: 19,
+                id: 2
+            }],
+            user: {
+                name: 'xb',
+                age: 8
+            },
+            star: [{
+                name: 'zq',
+                id: 0
+
+            }, {
+                name: '曹操',
+                id: 1
+
+            }, {
+                name: '达康书记',
+                id: 2
+
+            }]
+        },
+        methods: {
+            add() {
+
+                this.star.unshift({
+                    id: this.id,
+                    name: this.name
+                })
+            }
+        }
+
+    })
+</script>

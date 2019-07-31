@@ -1,0 +1,74 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .v-leave-to {
+            opacity: 0;
+            transform: translateX(-100px)
+        }
+        
+        .v-enter {
+            opacity: 0;
+            transform: translateX(100px)
+        }
+        
+        .v-enter-active,
+        .v-leave-active {
+            transition: all 0.6s linear
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id='app1'>
+        <a href="注册" @click.prevent='flag=true'>注册</a>
+        <a href="登录" @click.prevent='flag=false'>登录</a>
+        <v-register v-if='flag'></v-register>
+        <v-login v-else='flag'></v-login>
+        <a href="注册" @click.prevent='componentName="vRegister"'>注册</a>
+        <a href="登录" @click.prevent='componentName="vLogin"'>登录</a>
+
+        <transition mode='out-in'>
+            <component :is="componentName"></component>
+        </transition>
+
+    </div>
+
+    <template id='register'>
+        <div>
+            注册组件
+        </div>
+    </template>
+
+    <template id='login'>
+            <div>
+                登录组件
+            </div>
+        </template>
+</body>
+
+</html>
+<script src="./node_modules/vue/dist/vue.js"></script>
+
+<script>
+    Vue.component('vRegister', {
+        template: '#register'
+    })
+    Vue.component('vLogin', {
+        template: '#login'
+    })
+    new Vue({
+        el: '#app1',
+
+        data: {
+            componentName: 'vRegister',
+            flag: true
+        }
+
+    })
+</script>
