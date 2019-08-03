@@ -1,0 +1,26 @@
+[{
+    "id": "1",
+    "url": "/static/news.png",
+    "title": "新闻资讯"
+
+}, {
+    "id": "2",
+    "url": "/static/picShare.png",
+    "title": "图片分享"
+}, {
+    "id": "3",
+    "url": "/static/goodsShow.png",
+    "title": "商品展示"
+}, {
+    "id": "4",
+    "url": "/static/search.png",
+    "title": "国际新闻"
+}, {
+    "id": "5",
+    "url": "/static/feedback.png",
+    "title": "留言反馈"
+}, {
+    "id": "6",
+    "url": "/static/callme.png",
+    "title": "联系我们"
+}]

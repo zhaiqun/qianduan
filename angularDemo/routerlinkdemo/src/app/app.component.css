@@ -1,0 +1,10 @@
+ul {
+    height: 30px;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+ul>li {
+    float: left;
+    width: 33.3%;
+    text-align: center
+}

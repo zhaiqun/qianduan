@@ -1,0 +1,15 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+    <h1>
+        Welcome to {{ title }}!
+    </h1>
+
+    <ul>
+        <li>
+            <a routerLink="/home" queryParams='{"name": "zq"}' routerLinkActive="active">home</a></li>
+
+        <li> <a routerLink="/about" routerLinkActive="active">about</a></li>
+        <li> <a routerLink="/touchus" routerLinkActive="touchus">touchus</a></li>
+    </ul>
+
+    <router-outlet></router-outlet>

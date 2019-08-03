@@ -8,9 +8,11 @@
 </head>
 
 <body>
+
+    <div id="app2">222</div>
     <div id='app1'>
 
-        <component :is="'mycom'" ref="mycom"></component>
+        <component id="com" :is="'mycom'" ref="mycom"></component>
 
         <button @click='say'>say</button>
     </div>
@@ -31,10 +33,24 @@
         data: {
 
         },
+        created() {
+            this.getDom()
+        },
         methods: {
             say() {
                 this.$refs.mycom.sayHi();
+            },
+
+            getDom() { //如果dom中有vue指令，边获取不到。没有则可以获取到
+                //因为有指令的dom非真实dom,只是模板
+
+                var dom = document.getElementById('app2')
+                alert(dom.innerHTML)
             }
+        },
+        mounted() {
+            var dom = document.getElementById('com')
+            alert(dom.innerHTML)
         },
         components: {
             mycom: {
@@ -50,6 +66,7 @@
 
                         alert(`我是${this.name}`)
                     },
+
                 }
             }
 

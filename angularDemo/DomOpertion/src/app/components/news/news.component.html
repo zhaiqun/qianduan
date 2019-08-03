@@ -1,0 +1,10 @@
+<div id="divnews" [ngClass]="{red: flag}">
+
+
+    我是新闻组件 {{title}}</div>
+<button (click)='run()'>调用子组件的方法</button>
+<app-viewchilddemo #viewChildDemo></app-viewchilddemo>
+<div id="divnews2" *ngIf="flag">
+
+
+    我是有ngif指令的组件 {{title}}</div>

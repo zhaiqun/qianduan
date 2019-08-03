@@ -1,0 +1,7 @@
+<div>
+    <app-header [title]='title' [user]='user' [father]='this'></app-header>
+    内容
+    <app-footer (footerPub)='say($event)'></app-footer>
+</div>
+
+<router-outlet></router-outlet>
