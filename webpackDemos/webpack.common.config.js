@@ -17,15 +17,15 @@ let commonConfig = {
                             presets: ['@babel/preset-env']
                         }
                     },
-                    {
-                        loader: "eslint-loader",
-                        options: {
-                            formatter: require("eslint/lib/cli-engine/formatters/stylish"),
+                    // {
+                    //     loader: "eslint-loader",
+                    //     options: {
+                    //         formatter: require("eslint/lib/cli-engine/formatters/stylish"),
 
-                            // eslint options (if necessary)
-                            fix: true
-                        }
-                    }
+                    //         // eslint options (if necessary)
+                    //         fix: true
+                    //     }
+                    // }
                 ]
             },
 
