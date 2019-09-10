@@ -10,7 +10,7 @@
 <body>
     <div id="app1">
         {{msg}}
-
+        <button @click='changMsg'>改变msg</button>
         <!-- 这里绑定的属性名无论到小写，到子组件里都是小写 -->
         <component :is="'myCom'" v-bind:parentMsg="msg">
 
@@ -25,6 +25,9 @@
             <button  @click='change'>change</button>
             <button  @click='myclick'>show</button>
                 我是子组件  {{parentmsg}}
+<br>
+                ====================
+                <!-- <p>{{result}}</p> -->
         </div>
     </template>
 </body>
@@ -37,7 +40,7 @@
 <script>
     Vue.component('myCom', {
 
-        template: '<div> 我是子组件{{parentmsg}}</div>',
+        template: '<div> 我是子组件{{parentmsg}}   <br/> </div>',
         // 唯一一个属性为数组的，derectives,filters。components都是json对象
         props: ['parentmsg']
     })
@@ -50,6 +53,10 @@
             show(name) {
 
                 alert(`我${name}想上班了`)
+            },
+            changMsg() {
+
+                this.msg = '我父组件里被父组件修改后的值'
             }
         },
 
@@ -78,6 +85,16 @@
                         this.$emit('func', this.name)
                     }
                 },
+                watch: {
+                    'parentmsg': function(now, old) {
+                        console.log(`${old}=========${now}`)
+                    }
+                },
+                // computed: {
+                //     'result': function() {
+                //         this.parentmsg + this.name
+                //     },
+                // }
             }
         }
 

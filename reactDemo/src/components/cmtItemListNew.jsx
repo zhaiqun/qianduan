@@ -3,7 +3,7 @@ import  React  from 'react'
 import  ReactDom  from 'react-dom'
 
 
-import cssobj  from '../css/cmtList.css'
+import cssobj  from '../css/cmtList.scss'
 
 console.dir (cssobj)
 import  CmtItem   from './cmtItemNew'

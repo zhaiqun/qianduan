@@ -1,0 +1,10 @@
+ul {
+    display: flex;
+    background: rgb(0, 0, 0, 0.6)
+}
+
+ul li {
+    height: 30px;
+    line-height: 30px;
+    width: 100px
+}

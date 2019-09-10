@@ -1,0 +1,9 @@
+{
+    "window": {
+      "backgroundTextStyle": "dark",
+      "navigationBarBackgroundColor": "#ccc",
+      "navigationBarTitleText": "test",
+      "backgroundColor": "#ccc",
+      "navigationBarTextStyle": "black"
+    }
+}

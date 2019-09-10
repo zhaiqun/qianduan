@@ -1,0 +1,13 @@
+.loginContaniner{
+
+    margin: 0 auto;
+    width: 300px;
+    height: 180px
+
+}
+
+input{
+
+    border: 1px  solid  #ccc;
+    margin-bottom: 5px;
+}

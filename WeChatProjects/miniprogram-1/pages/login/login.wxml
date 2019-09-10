@@ -1,0 +1,23 @@
+<view>
+login
+<view class="loginContaniner">
+
+  <text>userName:</text><input  data-prop="userName" bindinput="inputChange"></input>
+ <text>pwd:</text><input  data-prop="pwd"   bindinput="inputChange"></input>
+
+ <button  catchtap="login">login</button>
+</view>
+</view>
+
+<form  bindsubmit="formSubmit">
+
+loginForm
+<view class="loginContaniner">
+
+  <text>userName:</text><input name="userName" ></input>
+ <text>pwd:</text><input  name="pwd"  ></input>
+
+ <button  catchtap="login"  form-type="submit">login</button>
+</view>
+
+</form>

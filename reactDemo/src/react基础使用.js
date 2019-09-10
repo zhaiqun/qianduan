@@ -72,6 +72,5 @@ import Testcom from './components/classComponent'
 import Hello from 'src/components/Hello'
 
 
-ReactDom.render( <
-    div > < Hi dog = { dog } > < /Hi><Hello></Hello > < Movie name = { dog.name } > < /Movie>  <Testcom  name={dog.name}></Testcom > < /div> ,
+ReactDom.render( < div > < Hi dog = { dog } > < /Hi><Hello></Hello > < Movie name = { dog.name } > < /Movie>  <Testcom  name={dog.name}></Testcom > < /div> ,
     document.querySelector('#app'))

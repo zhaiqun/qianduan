@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
     <script src="ClassEs6.js"></script>
     <script>
         // function test() {
@@ -27,11 +27,77 @@
 
         // }
     </script>
+
+    <style>
+        *,
+        *::before {
+            box-sizing: border-box;
+        }
+        
+        .div1 {
+            width: 120px;
+            height: 31px;
+            background: rgba(255, 255, 255, 0.2);
+            margin: 16px 24px 16px 0;
+            float: left;
+        }
+        
+        .div1::before {
+            content: "豆瓣电影";
+            color: #27a;
+            font-size: 24px;
+        }
+        
+        .linetest {
+            background-color: grey;
+            height: 300px;
+            line-height: 300px;
+            /* font-size: 0 */
+            /* 对字体进行设置 */
+        }
+        
+        span {
+            color: red;
+        }
+        
+        .linetest span {
+            display: inline-block;
+            /* line-height: 300px; */
+            vertical-align: 100rem;
+            color: yellow;
+        }
+    </style>
+
+
 </head>
 
 
 <body>
 
+
+    <div class='linetest'>
+
+        <!-- <span>1</span> -->
+        <span class="glyphicon glyphicon-yen" aria-hidden="true"></span>
+
+
+    </div>
+    <div class="div1">
+
+
+    </div>
+
+    <div>
+        <label for="">篮球
+                    <input  type="radio"   name="hobby" value="0">
+    </div>
+  
+  
+</label>
+        <label for="">足球
+        <input  type="radio"  name="hobby"  value="1">
+      
+    </label>
 </body>
 
 </html>

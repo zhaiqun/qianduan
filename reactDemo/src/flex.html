@@ -1,0 +1,96 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        .container {
+            margin: 0 auto;
+            width: 680px;
+            border: 1px solid #ccc;
+            display: flex;
+            flex-direction: row
+        }
+        
+        .container div {
+            height: 20px;
+            flex: 1;
+        }
+        
+        .container div:nth-child(1) {
+            background: yellow;
+            width: 30px;
+            flex: inherit
+        }
+        
+        .container div:nth-child(2) {
+            background: green;
+        }
+        
+        .container div:nth-child(3) {
+            background: gray;
+        }
+        
+        .container1 {
+            margin: 0 auto;
+            width: 680px;
+            border: 1px solid #ccc;
+            display: flex;
+            flex-direction: row;
+            margin-top: 40px;
+        }
+        
+        .container1 div {
+            width: 25%;
+            display: inline-block;
+            height: 200px;
+            border: 1px solid #ccc;
+        }
+        
+        .container1 div:nth-child(1) {
+            background: yellow;
+        }
+        
+        .container1 div:nth-child(1) img {
+            width: 50%;
+            text-align: center;
+            margin: 0 auto;
+            display: block;
+        }
+        
+        .container1 div:nth-child(2) {
+            background: green;
+        }
+        
+        .container1 div:nth-child(3) {
+            background: gray;
+        }
+        
+        .container1 div:nth-child(4) {
+            background: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div> </div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+    <div class="container1">
+        <div><img src="../dist/1.jpg" alt=""> 33</div>
+        <div></div>
+        <div></div>
+
+
+
+    </div>
+</body>
+
+</html>

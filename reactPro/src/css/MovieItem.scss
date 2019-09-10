@@ -1,0 +1,25 @@
+.movieItem {
+    border: 1px solid #ddd;
+    text-align: center;
+    float: left;
+    width: 170px;
+    height: 230px;
+    box-shadow: 0 0 6px #ddd;
+    margin: 6px;
+    font-size: 12px;
+    padding: 6px;
+    .h4 {
+        margin-bottom: 0;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+    img {
+        width: 100px;
+        height: 140px;
+        transition: all 0.3s linear
+    }
+    &:hover {
+        transform: rotate(1deg) scale(1.03)
+    }
+}

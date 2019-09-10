@@ -1,0 +1,28 @@
+/* You can add global styles to this file, and also import other style files */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+li {
+    list-style: none;
+}
+
+.containner {
+    display: flex;
+}
+
+a {
+    text-decoration: none;
+}
+
+a.router-link-active {
+    color: blue;
+}
+
+.left {
+    width: 100px;
+    border-right: 1px solid #ccc
+}

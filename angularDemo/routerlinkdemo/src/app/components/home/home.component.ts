@@ -14,12 +14,13 @@ public title:string='见鬼'
 public name:Observable<any>
   ngOnInit() {
 
-    this.route.queryParamMap.pipe(
-      switchMap(params => {
-        return of(params.get('name'));
-      })
-    ).subscribe((data) => {
-      console.log('query', data);
+    console.log("======================")
+    console.log(this.route)
+
+    this.route.queryParams.subscribe((data) => {
+      console.log( data);
+
+      this.name=data.name
     });
     
   }

@@ -6,10 +6,10 @@
 
     <ul>
         <li>
-            <a routerLink="/home" queryParams='{"name": "zq"}' routerLinkActive="active">home</a></li>
+            <a routerLink="/home" [queryParams]='{"name": "zq"}' routerLinkActive="active">home</a></li>
 
-        <li> <a routerLink="/about" routerLinkActive="active">about</a></li>
-        <li> <a routerLink="/touchus" routerLinkActive="touchus">touchus</a></li>
+        <li> <a [routerLink]='["/about","tony"]' routerLinkActive="active">about</a></li>
+        <li> <a [routerLink]="['/touchus','120']" routerLinkActive="touchus">touchus</a></li>
     </ul>
 
     <router-outlet></router-outlet>

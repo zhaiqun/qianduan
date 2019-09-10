@@ -1,0 +1,35 @@
+.searchContianner{
+
+    height: 150px;
+    background-color:#f0f3f5;
+    padding: 10px;
+    .searchDiv{
+        width: 40%;
+        margin: 0 auto;
+        padding: 0 33px;
+        position: relative;
+        display: block;
+       
+        .searchInput{
+            width: 100%;
+            border-radius: 0;
+            height: 33px;
+            outline: none;
+            background: #fff;
+            border: none;
+        }
+
+        .searchIcon{
+          
+            position: absolute;
+            right: 0;
+            top:0;
+            display: block;
+            width: 33px;
+            height: 33px;
+             background: url('https://img3.doubanio.com/dae/accounts/resources/2f48733/book/assets/nav_bk_bg.png?s=1')  0  -39px;
+        }
+    }
+  
+}
+

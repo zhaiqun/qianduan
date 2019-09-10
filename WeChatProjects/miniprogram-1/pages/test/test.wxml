@@ -1,0 +1,17 @@
+<view  class="father" bindtap="fatherTaphandler"  data-name="翟群"  data-name-age="tony30">
+<view  class="son"  bindtap="childTaphandler">
+<input  value="{{message}}" bindinput="bindinputHandler"></input>
+
+<text  wx:if="{{show}}" >{{message}}</text>
+</view>
+<view  class="son"  catchtap="childTaphandler">
+
+<text  wx:if="{{show}}" >{{show}}</text>
+
+
+
+<text hidden="{{!show}}">hidden</text>
+
+</view>
+<button  catchtap="toggle">toggle</button>
+</view>

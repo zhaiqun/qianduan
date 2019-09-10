@@ -6,6 +6,7 @@ class japan {
 
 }
 
+
 var p = new japan('三木子', 18);
 
 console.log(p.name)

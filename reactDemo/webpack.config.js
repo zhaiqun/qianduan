@@ -1,10 +1,21 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin")
 const path = require("path")
 module.exports = {
-    mode: 'production',
+    mode: 'development',
     module: {
-        rules: [
-            { test: /\.js|jsx?$/, use: 'babel-loader', exclude: /node_modules/ },
+        rules: [{
+                test: /\.js|jsx?$/,
+                use: {
+                    loader: 'babel-loader',
+                    // options: {
+                    //     "plugins": [
+                         
+                    //     ]
+                    // }
+
+                },
+                exclude: /node_modules/
+            },
             {
                 test: /\.css/,
                 use: [
@@ -12,38 +23,33 @@ module.exports = {
 
                     {
                         loader: 'css-loader',
-                        options: {
-                            // modules: {
-                            //     mode: 'local',
-                            //     localIdentName: '[path][name]__[local]--[hash:base64:5]',
-                            //     context: path.resolve(__dirname, 'src'),
-                            //     hashPrefix: 'my-custom-hash',
-                            // },
-                            // modules: {
-                            //     getLocalIdent: (context, localIdentName, localName, options) => {
-                            //         return '[path][name]';
-                            //     },
-                            // },
-                            modules: {
-                                localIdentName: '[path][name]__[local]--[hash:base64:5]',
-                            },
-                        }
+                        // options: {
+
+                        //     modules: {
+                        //         localIdentName: '[path][name]__[local]--[hash:base64:5]',
+                        //     },
+                        // }
                     }
                 ]
+            }, {
+                test: /\.sass|scss$/,
+                use: [{
+                    loader: "style-loader",
+
+                }, {
+                    loader: "css-loader",
+
+                    options: {
+
+                        modules: {
+                            localIdentName: '[path][name]__[local]--[hash:base64:5]',
+                        },
+                    }
+                }, {
+                    loader: "sass-loader",
+                }]
             }
-            // {
-            //     test: /\.js|jsx?$/,
-            //     exclude: '/node_modules/',
-            //     use: {
-            //         loader: 'babel-loader',
-            //         options: {
-            //             presets: ['@babel/preset-env',
-            //                 "@babel/preset-react"
-            //             ],
-            //             plugins: ["@babel/plugin-transform-runtime"]
-            //         },
-            //     },
-            // }
+
         ]
     },
     plugins: [

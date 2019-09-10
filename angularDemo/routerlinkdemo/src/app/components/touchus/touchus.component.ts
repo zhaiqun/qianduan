@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-touchus',
   templateUrl: './touchus.component.html',
@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TouchusComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(public  route:ActivatedRoute) { }
+  public phone:string=''
   ngOnInit() {
+    this.route.params.subscribe((d)=>{
+      this.phone=d.phoneNum
+    })
+
   }
 
 }

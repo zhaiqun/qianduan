@@ -1,0 +1,25 @@
+<div class="containner">
+    <div class="left">
+
+        <ul>
+            <li>
+                <a [routerLink]="['/home/systemsetting']" routerLinkActive="router-link-active">
+                系统设置
+            </a>
+            </li>
+
+            <li>
+                <a [routerLink]="['/home/welcome']" routerLinkActive="router-link-active">
+                welcome
+            </a>
+            </li>
+        </ul>
+
+
+
+    </div>
+
+    <div class="right">
+        <router-outlet></router-outlet>
+    </div>
+</div>
